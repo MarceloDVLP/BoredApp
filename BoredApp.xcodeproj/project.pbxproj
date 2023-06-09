@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73DC1682A33703E00F2659B /* AppDelegate.swift */; };
 		C73DC16B2A33703E00F2659B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73DC16A2A33703E00F2659B /* SceneDelegate.swift */; };
-		C73DC16D2A33703E00F2659B /* BoredListViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73DC16C2A33703E00F2659B /* BoredListViewControler.swift */; };
-		C73DC1702A33703E00F2659B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DC16E2A33703E00F2659B /* Main.storyboard */; };
+		C73DC16D2A33703E00F2659B /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73DC16C2A33703E00F2659B /* ActivityListViewController.swift */; };
+		C73DC1702A33703E00F2659B /* ActivityList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DC16E2A33703E00F2659B /* ActivityList.storyboard */; };
 		C73DC1722A33703F00F2659B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73DC1712A33703F00F2659B /* Assets.xcassets */; };
 		C73DC1752A33703F00F2659B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DC1732A33703F00F2659B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,8 +19,8 @@
 		C73DC1652A33703E00F2659B /* BoredApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoredApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73DC1682A33703E00F2659B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C73DC16A2A33703E00F2659B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C73DC16C2A33703E00F2659B /* BoredListViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoredListViewControler.swift; sourceTree = "<group>"; };
-		C73DC16F2A33703E00F2659B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C73DC16C2A33703E00F2659B /* ActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewController.swift; sourceTree = "<group>"; };
+		C73DC16F2A33703E00F2659B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ActivityList.storyboard; sourceTree = "<group>"; };
 		C73DC1712A33703F00F2659B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C73DC1742A33703F00F2659B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C73DC1762A33703F00F2659B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +56,31 @@
 		C73DC1672A33703E00F2659B /* BoredApp */ = {
 			isa = PBXGroup;
 			children = (
-				C73DC1682A33703E00F2659B /* AppDelegate.swift */,
-				C73DC16A2A33703E00F2659B /* SceneDelegate.swift */,
-				C73DC16C2A33703E00F2659B /* BoredListViewControler.swift */,
-				C73DC16E2A33703E00F2659B /* Main.storyboard */,
+				C73DC17D2A33725B00F2659B /* Application */,
+				C73DC17C2A33722400F2659B /* ActivityList */,
 				C73DC1712A33703F00F2659B /* Assets.xcassets */,
 				C73DC1732A33703F00F2659B /* LaunchScreen.storyboard */,
 				C73DC1762A33703F00F2659B /* Info.plist */,
 			);
 			path = BoredApp;
+			sourceTree = "<group>";
+		};
+		C73DC17C2A33722400F2659B /* ActivityList */ = {
+			isa = PBXGroup;
+			children = (
+				C73DC16E2A33703E00F2659B /* ActivityList.storyboard */,
+				C73DC16C2A33703E00F2659B /* ActivityListViewController.swift */,
+			);
+			path = ActivityList;
+			sourceTree = "<group>";
+		};
+		C73DC17D2A33725B00F2659B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C73DC1682A33703E00F2659B /* AppDelegate.swift */,
+				C73DC16A2A33703E00F2659B /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +143,7 @@
 			files = (
 				C73DC1752A33703F00F2659B /* LaunchScreen.storyboard in Resources */,
 				C73DC1722A33703F00F2659B /* Assets.xcassets in Resources */,
-				C73DC1702A33703E00F2659B /* Main.storyboard in Resources */,
+				C73DC1702A33703E00F2659B /* ActivityList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C73DC16D2A33703E00F2659B /* BoredListViewControler.swift in Sources */,
+				C73DC16D2A33703E00F2659B /* ActivityListViewController.swift in Sources */,
 				C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */,
 				C73DC16B2A33703E00F2659B /* SceneDelegate.swift in Sources */,
 			);
@@ -147,12 +163,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C73DC16E2A33703E00F2659B /* Main.storyboard */ = {
+		C73DC16E2A33703E00F2659B /* ActivityList.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C73DC16F2A33703E00F2659B /* Base */,
 			);
-			name = Main.storyboard;
+			name = ActivityList.storyboard;
 			sourceTree = "<group>";
 		};
 		C73DC1732A33703F00F2659B /* LaunchScreen.storyboard */ = {
@@ -291,7 +307,7 @@
 				INFOPLIST_FILE = BoredApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = ActivityList;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -318,7 +334,7 @@
 				INFOPLIST_FILE = BoredApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = ActivityList;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

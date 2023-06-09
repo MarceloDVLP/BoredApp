@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class BoredListViewControler: UIViewController {
+final class ActivityListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
