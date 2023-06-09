@@ -53,7 +53,7 @@ extension ActivityListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let insets = self.collectionView(collectionView, layout: collectionViewLayout, insetForSectionAt: indexPath.section)
-        let size =  CGSize(width: collectionView.bounds.width-insets.left-insets.right, height: 60)
+        let size =  CGSize(width: collectionView.bounds.width-insets.left-insets.right, height: 160)
         print(size)
         return size
     }
@@ -66,6 +66,6 @@ extension ActivityListViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        10
+        16
     }
 }
