@@ -15,6 +15,8 @@
 		C73DC1752A33703F00F2659B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DC1732A33703F00F2659B /* LaunchScreen.storyboard */; };
 		C75C5A4B2A3373CB0090766E /* RemoteActivityLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */; };
 		C75C5A532A3377FE0090766E /* RemoteActivityLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A522A3377FE0090766E /* RemoteActivityLoaderTests.swift */; };
+		C75C5A5D2A337C800090766E /* ActivityCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A5B2A337C520090766E /* ActivityCodable.swift */; };
+		C75C5A5F2A337E930090766E /* ClientHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A5E2A337E930090766E /* ClientHTTP.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		C75C5A522A3377FE0090766E /* RemoteActivityLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteActivityLoaderTests.swift; sourceTree = "<group>"; };
 		C75C5A592A337A400090766E /* BoredApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoredApp.entitlements; sourceTree = "<group>"; };
 		C75C5A5A2A337ADB0090766E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C75C5A5B2A337C520090766E /* ActivityCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCodable.swift; sourceTree = "<group>"; };
+		C75C5A5E2A337E930090766E /* ClientHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHTTP.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */,
+				C75C5A5B2A337C520090766E /* ActivityCodable.swift */,
+				C75C5A5E2A337E930090766E /* ClientHTTP.swift */,
 			);
 			path = RemoteActivityLoader;
 			sourceTree = "<group>";
@@ -229,8 +235,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C75C5A5F2A337E930090766E /* ClientHTTP.swift in Sources */,
 				C73DC16D2A33703E00F2659B /* ActivityListViewController.swift in Sources */,
 				C75C5A4B2A3373CB0090766E /* RemoteActivityLoader.swift in Sources */,
+				C75C5A5D2A337C800090766E /* ActivityCodable.swift in Sources */,
 				C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */,
 				C73DC16B2A33703E00F2659B /* SceneDelegate.swift in Sources */,
 			);

@@ -11,7 +11,8 @@ import XCTest
 final class RemoteActivityLoaderTests: XCTestCase {
 
     func testFetchActivity() async throws {
-        let sut = RemoteActivityLoader()
+        let clientHTTP = ClientHTTP(session: URLSession.shared)
+        let sut = RemoteActivityLoader(clientHTTP: clientHTTP)
         let activity = try await sut.fetch()
         XCTAssertFalse(activity.activity.isEmpty)
     }
