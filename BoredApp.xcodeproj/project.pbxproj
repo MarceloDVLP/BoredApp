@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C70B0C752A3385980058DAE3 /* ActivityList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70B0C742A3385980058DAE3 /* ActivityList.storyboard */; };
+		C70B0C782A33AC6B0058DAE3 /* ActivityListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B0C772A33AC6B0058DAE3 /* ActivityListInteractor.swift */; };
 		C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73DC1682A33703E00F2659B /* AppDelegate.swift */; };
 		C73DC16B2A33703E00F2659B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73DC16A2A33703E00F2659B /* SceneDelegate.swift */; };
 		C73DC16D2A33703E00F2659B /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73DC16C2A33703E00F2659B /* ActivityListViewController.swift */; };
-		C73DC1702A33703E00F2659B /* ActivityList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DC16E2A33703E00F2659B /* ActivityList.storyboard */; };
 		C73DC1722A33703F00F2659B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73DC1712A33703F00F2659B /* Assets.xcassets */; };
 		C73DC1752A33703F00F2659B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DC1732A33703F00F2659B /* LaunchScreen.storyboard */; };
 		C75C5A4B2A3373CB0090766E /* RemoteActivityLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */; };
 		C75C5A532A3377FE0090766E /* RemoteActivityLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A522A3377FE0090766E /* RemoteActivityLoaderTests.swift */; };
 		C75C5A5D2A337C800090766E /* ActivityCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A5B2A337C520090766E /* ActivityCodable.swift */; };
 		C75C5A5F2A337E930090766E /* ClientHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A5E2A337E930090766E /* ClientHTTP.swift */; };
+		C75C5A632A33839D0090766E /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A612A33839D0090766E /* ActivityCell.swift */; };
+		C75C5A642A33839D0090766E /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C75C5A622A33839D0090766E /* ActivityCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,21 +33,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C70B0C742A3385980058DAE3 /* ActivityList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActivityList.storyboard; sourceTree = "<group>"; };
+		C70B0C772A33AC6B0058DAE3 /* ActivityListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListInteractor.swift; sourceTree = "<group>"; };
 		C73DC1652A33703E00F2659B /* BoredApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoredApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73DC1682A33703E00F2659B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C73DC16A2A33703E00F2659B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C73DC16C2A33703E00F2659B /* ActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewController.swift; sourceTree = "<group>"; };
-		C73DC16F2A33703E00F2659B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ActivityList.storyboard; sourceTree = "<group>"; };
 		C73DC1712A33703F00F2659B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C73DC1742A33703F00F2659B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C73DC1762A33703F00F2659B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteActivityLoader.swift; sourceTree = "<group>"; };
 		C75C5A502A3377FE0090766E /* BoredAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoredAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75C5A522A3377FE0090766E /* RemoteActivityLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteActivityLoaderTests.swift; sourceTree = "<group>"; };
-		C75C5A592A337A400090766E /* BoredApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoredApp.entitlements; sourceTree = "<group>"; };
 		C75C5A5A2A337ADB0090766E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C75C5A5B2A337C520090766E /* ActivityCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCodable.swift; sourceTree = "<group>"; };
 		C75C5A5E2A337E930090766E /* ClientHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHTTP.swift; sourceTree = "<group>"; };
+		C75C5A612A33839D0090766E /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
+		C75C5A622A33839D0090766E /* ActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C70B0C762A338B710058DAE3 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				C70B0C772A33AC6B0058DAE3 /* ActivityListInteractor.swift */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
 		C73DC15C2A33703E00F2659B = {
 			isa = PBXGroup;
 			children = (
@@ -86,7 +99,6 @@
 		C73DC1672A33703E00F2659B /* BoredApp */ = {
 			isa = PBXGroup;
 			children = (
-				C75C5A592A337A400090766E /* BoredApp.entitlements */,
 				C73DC17D2A33725B00F2659B /* Application */,
 				C73DC17C2A33722400F2659B /* ActivityList */,
 				C73DC1712A33703F00F2659B /* Assets.xcassets */,
@@ -99,9 +111,9 @@
 		C73DC17C2A33722400F2659B /* ActivityList */ = {
 			isa = PBXGroup;
 			children = (
+				C70B0C762A338B710058DAE3 /* Business Logic */,
+				C75C5A602A3383740090766E /* UserInterface */,
 				C75C5A492A3373AE0090766E /* RemoteActivityLoader */,
-				C73DC16E2A33703E00F2659B /* ActivityList.storyboard */,
-				C73DC16C2A33703E00F2659B /* ActivityListViewController.swift */,
 			);
 			path = ActivityList;
 			sourceTree = "<group>";
@@ -132,6 +144,17 @@
 				C75C5A522A3377FE0090766E /* RemoteActivityLoaderTests.swift */,
 			);
 			path = BoredAppTests;
+			sourceTree = "<group>";
+		};
+		C75C5A602A3383740090766E /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				C70B0C742A3385980058DAE3 /* ActivityList.storyboard */,
+				C73DC16C2A33703E00F2659B /* ActivityListViewController.swift */,
+				C75C5A612A33839D0090766E /* ActivityCell.swift */,
+				C75C5A622A33839D0090766E /* ActivityCell.xib */,
+			);
+			path = UserInterface;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,7 +240,8 @@
 			files = (
 				C73DC1752A33703F00F2659B /* LaunchScreen.storyboard in Resources */,
 				C73DC1722A33703F00F2659B /* Assets.xcassets in Resources */,
-				C73DC1702A33703E00F2659B /* ActivityList.storyboard in Resources */,
+				C75C5A642A33839D0090766E /* ActivityCell.xib in Resources */,
+				C70B0C752A3385980058DAE3 /* ActivityList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +262,9 @@
 				C75C5A5F2A337E930090766E /* ClientHTTP.swift in Sources */,
 				C73DC16D2A33703E00F2659B /* ActivityListViewController.swift in Sources */,
 				C75C5A4B2A3373CB0090766E /* RemoteActivityLoader.swift in Sources */,
+				C70B0C782A33AC6B0058DAE3 /* ActivityListInteractor.swift in Sources */,
 				C75C5A5D2A337C800090766E /* ActivityCodable.swift in Sources */,
+				C75C5A632A33839D0090766E /* ActivityCell.swift in Sources */,
 				C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */,
 				C73DC16B2A33703E00F2659B /* SceneDelegate.swift in Sources */,
 			);
@@ -263,14 +289,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C73DC16E2A33703E00F2659B /* ActivityList.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C73DC16F2A33703E00F2659B /* Base */,
-			);
-			name = ActivityList.storyboard;
-			sourceTree = "<group>";
-		};
 		C73DC1732A33703F00F2659B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -401,7 +419,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = BoredApp/BoredApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -429,7 +447,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = BoredApp/BoredApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
