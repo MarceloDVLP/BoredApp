@@ -17,12 +17,16 @@ final class ActivityListViewController: UIViewController {
     }()
     
     var activities: [ActivityCodable] = []
-        
 
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
-        activityIndicator.startAnimating()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        collectionView.reloadData()
         interactor.fetch() { [weak self] actitivies in
             self?.activities = actitivies
             self?.activityIndicator.stopAnimating()
@@ -38,14 +42,18 @@ final class ActivityListViewController: UIViewController {
 
 extension ActivityListViewController: UICollectionViewDataSource {
 
+    var isCollectionLoading: Bool {
+        activities.count == 0
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ActivityCell.identifier, for: indexPath) as! ActivityCell
-        cell.configure(activities[indexPath.item])
+        isCollectionLoading ?  cell.starLoad() : cell.configure(activities[indexPath.item])
         return cell
     }
         
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return activities.count
+        return isCollectionLoading ? 8 : activities.count
     }
 }
 
@@ -66,6 +74,6 @@ extension ActivityListViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        16
+        32
     }
 }
