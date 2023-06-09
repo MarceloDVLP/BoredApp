@@ -13,7 +13,19 @@
 		C73DC1702A33703E00F2659B /* ActivityList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DC16E2A33703E00F2659B /* ActivityList.storyboard */; };
 		C73DC1722A33703F00F2659B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73DC1712A33703F00F2659B /* Assets.xcassets */; };
 		C73DC1752A33703F00F2659B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DC1732A33703F00F2659B /* LaunchScreen.storyboard */; };
+		C75C5A4B2A3373CB0090766E /* RemoteActivityLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */; };
+		C75C5A532A3377FE0090766E /* RemoteActivityLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A522A3377FE0090766E /* RemoteActivityLoaderTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C75C5A542A3377FE0090766E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C73DC15D2A33703E00F2659B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C73DC1642A33703E00F2659B;
+			remoteInfo = BoredApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C73DC1652A33703E00F2659B /* BoredApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoredApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,10 +36,22 @@
 		C73DC1712A33703F00F2659B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C73DC1742A33703F00F2659B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C73DC1762A33703F00F2659B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteActivityLoader.swift; sourceTree = "<group>"; };
+		C75C5A502A3377FE0090766E /* BoredAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoredAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C75C5A522A3377FE0090766E /* RemoteActivityLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteActivityLoaderTests.swift; sourceTree = "<group>"; };
+		C75C5A592A337A400090766E /* BoredApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BoredApp.entitlements; sourceTree = "<group>"; };
+		C75C5A5A2A337ADB0090766E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C73DC1622A33703E00F2659B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C75C5A4D2A3377FE0090766E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				C73DC1672A33703E00F2659B /* BoredApp */,
+				C75C5A512A3377FE0090766E /* BoredAppTests */,
 				C73DC1662A33703E00F2659B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				C73DC1652A33703E00F2659B /* BoredApp.app */,
+				C75C5A502A3377FE0090766E /* BoredAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,6 +82,7 @@
 		C73DC1672A33703E00F2659B /* BoredApp */ = {
 			isa = PBXGroup;
 			children = (
+				C75C5A592A337A400090766E /* BoredApp.entitlements */,
 				C73DC17D2A33725B00F2659B /* Application */,
 				C73DC17C2A33722400F2659B /* ActivityList */,
 				C73DC1712A33703F00F2659B /* Assets.xcassets */,
@@ -68,6 +95,7 @@
 		C73DC17C2A33722400F2659B /* ActivityList */ = {
 			isa = PBXGroup;
 			children = (
+				C75C5A492A3373AE0090766E /* RemoteActivityLoader */,
 				C73DC16E2A33703E00F2659B /* ActivityList.storyboard */,
 				C73DC16C2A33703E00F2659B /* ActivityListViewController.swift */,
 			);
@@ -81,6 +109,23 @@
 				C73DC16A2A33703E00F2659B /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		C75C5A492A3373AE0090766E /* RemoteActivityLoader */ = {
+			isa = PBXGroup;
+			children = (
+				C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */,
+			);
+			path = RemoteActivityLoader;
+			sourceTree = "<group>";
+		};
+		C75C5A512A3377FE0090766E /* BoredAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				C75C5A5A2A337ADB0090766E /* Info.plist */,
+				C75C5A522A3377FE0090766E /* RemoteActivityLoaderTests.swift */,
+			);
+			path = BoredAppTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,6 +148,24 @@
 			productReference = C73DC1652A33703E00F2659B /* BoredApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C75C5A4F2A3377FE0090766E /* BoredAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C75C5A562A3377FE0090766E /* Build configuration list for PBXNativeTarget "BoredAppTests" */;
+			buildPhases = (
+				C75C5A4C2A3377FE0090766E /* Sources */,
+				C75C5A4D2A3377FE0090766E /* Frameworks */,
+				C75C5A4E2A3377FE0090766E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C75C5A552A3377FE0090766E /* PBXTargetDependency */,
+			);
+			name = BoredAppTests;
+			productName = BoredAppTests;
+			productReference = C75C5A502A3377FE0090766E /* BoredAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -115,6 +178,10 @@
 				TargetAttributes = {
 					C73DC1642A33703E00F2659B = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					C75C5A4F2A3377FE0090766E = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = C73DC1642A33703E00F2659B;
 					};
 				};
 			};
@@ -132,6 +199,7 @@
 			projectRoot = "";
 			targets = (
 				C73DC1642A33703E00F2659B /* BoredApp */,
+				C75C5A4F2A3377FE0090766E /* BoredAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -147,6 +215,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C75C5A4E2A3377FE0090766E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -155,12 +230,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				C73DC16D2A33703E00F2659B /* ActivityListViewController.swift in Sources */,
+				C75C5A4B2A3373CB0090766E /* RemoteActivityLoader.swift in Sources */,
 				C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */,
 				C73DC16B2A33703E00F2659B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C75C5A4C2A3377FE0090766E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C75C5A532A3377FE0090766E /* RemoteActivityLoaderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C75C5A552A3377FE0090766E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C73DC1642A33703E00F2659B /* BoredApp */;
+			targetProxy = C75C5A542A3377FE0090766E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C73DC16E2A33703E00F2659B /* ActivityList.storyboard */ = {
@@ -301,6 +393,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BoredApp/BoredApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -328,6 +421,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BoredApp/BoredApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -350,6 +444,44 @@
 			};
 			name = Release;
 		};
+		C75C5A572A3377FE0090766E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BoredAppTests/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = trio.challenge.marcelocarvalho.com.BoredAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoredApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BoredApp";
+			};
+			name = Debug;
+		};
+		C75C5A582A3377FE0090766E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BoredAppTests/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = trio.challenge.marcelocarvalho.com.BoredAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoredApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BoredApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -367,6 +499,15 @@
 			buildConfigurations = (
 				C73DC17A2A33703F00F2659B /* Debug */,
 				C73DC17B2A33703F00F2659B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C75C5A562A3377FE0090766E /* Build configuration list for PBXNativeTarget "BoredAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C75C5A572A3377FE0090766E /* Debug */,
+				C75C5A582A3377FE0090766E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
