@@ -13,6 +13,7 @@ final class ActivityCell: UICollectionViewCell {
     var cornerRadius: CGFloat = 12
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var difficultyLabel: UILabel!
+    @IBOutlet weak var difficultyContainerView: UIView!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var typeContainerView: UIView!
@@ -20,6 +21,7 @@ final class ActivityCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var participantLabel: UILabel!
     @IBOutlet weak var participantImageView: UIImageView!
+    @IBOutlet weak var participantContainerView: UIView!
     @IBOutlet weak var activityType: UILabel!
     var color: UIColor?
     
@@ -56,9 +58,9 @@ final class ActivityCell: UICollectionViewCell {
         let views: [UIView] = [
             nameLabel,
             priceContainerView,
-            participantLabel,
+            participantContainerView,
             typeContainerView,
-            difficultyLabel
+            difficultyContainerView
         ]
         
         views.forEach({ label in
