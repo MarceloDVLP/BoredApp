@@ -15,8 +15,10 @@ final class ActivityCell: UICollectionViewCell {
     @IBOutlet weak var difficultyLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var typeContainerView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var participantLabel: UILabel!
+    @IBOutlet weak var participantImageView: UIImageView!
     @IBOutlet weak var activityType: UILabel!
     var color: UIColor?
     
@@ -51,19 +53,23 @@ final class ActivityCell: UICollectionViewCell {
     }
     
     func starLoad() {
-        let views: [UILabel] = [
+        let views: [UIView] = [
             nameLabel,
             priceLabel,
             participantLabel,
-            activityType,
+            typeContainerView,
             difficultyLabel
         ]
         
-//        views.forEach({ label in
-//            label.text = nil
-//            label.startShimmeringAnimation()
-//        })
+        views.forEach({ label in
+            label.backgroundColor = .lightGray
+            
+            label.startShimmeringAnimation()
+        })
 //
+        containerView.layer.cornerRadius = 12
+        containerView.layer.borderWidth = 1
+        containerView.layer.borderColor = UIColor.black.cgColor
         containerView.startShimmeringAnimation()
     }
     
