@@ -64,34 +64,6 @@
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilT-KC-FrU">
-                                <rect key="frame" x="260" y="16" width="126" height="21"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                             " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPQ-M5-Tl8">
-                                        <rect key="frame" x="18" y="3" width="90" height="15"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="IPQ-M5-Tl8" secondAttribute="width" multiplier="1.4" id="LDs-as-ajj"/>
-                                    <constraint firstAttribute="height" secondItem="IPQ-M5-Tl8" secondAttribute="height" multiplier="1.4" id="OTF-NZ-mnu"/>
-                                    <constraint firstItem="IPQ-M5-Tl8" firstAttribute="centerY" secondItem="ilT-KC-FrU" secondAttribute="centerY" id="ZVb-ZX-ERd"/>
-                                    <constraint firstItem="IPQ-M5-Tl8" firstAttribute="centerX" secondItem="ilT-KC-FrU" secondAttribute="centerX" id="ga3-h2-bvz"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="              " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCJ-W2-zBr">
                                 <rect key="frame" x="332.66666666666669" y="127" width="53.333333333333314" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -112,24 +84,47 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIt-wT-dd0">
+                                <rect key="frame" x="296" y="16" width="90" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                        " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogd-wQ-HNO">
+                                        <rect key="frame" x="7.6666666666666856" y="3" width="75" height="15"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ogd-wQ-HNO" firstAttribute="centerY" secondItem="pIt-wT-dd0" secondAttribute="centerY" id="0eQ-Bu-35j"/>
+                                    <constraint firstAttribute="height" secondItem="ogd-wQ-HNO" secondAttribute="height" multiplier="1.4" id="n4y-nN-NpN"/>
+                                    <constraint firstItem="ogd-wQ-HNO" firstAttribute="centerX" secondItem="pIt-wT-dd0" secondAttribute="centerX" id="phW-1q-zfn"/>
+                                    <constraint firstAttribute="width" secondItem="ogd-wQ-HNO" secondAttribute="width" multiplier="1.2" id="t21-Sc-KYx"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vce-Zt-j1D" firstAttribute="centerY" secondItem="kCJ-W2-zBr" secondAttribute="centerY" id="4N3-UW-bkq"/>
                             <constraint firstAttribute="trailing" secondItem="kCJ-W2-zBr" secondAttribute="trailing" constant="16" id="5Wp-xh-jt6"/>
-                            <constraint firstAttribute="trailing" secondItem="ilT-KC-FrU" secondAttribute="trailing" constant="16" id="7IV-Lr-Kpc"/>
                             <constraint firstItem="QWx-Q9-Bi0" firstAttribute="leading" secondItem="rgp-r7-bwI" secondAttribute="leading" constant="16" id="Fok-TU-IkA"/>
                             <constraint firstItem="QWx-Q9-Bi0" firstAttribute="top" secondItem="rgp-r7-bwI" secondAttribute="top" constant="16" id="Gzf-wl-lYc"/>
                             <constraint firstItem="FtK-5l-MEV" firstAttribute="leading" secondItem="rgp-r7-bwI" secondAttribute="leading" constant="16" id="IMe-Ls-h56"/>
                             <constraint firstAttribute="bottom" secondItem="awN-BM-ORM" secondAttribute="bottom" constant="16" id="OeH-qn-4d1"/>
                             <constraint firstItem="FtK-5l-MEV" firstAttribute="top" secondItem="QWx-Q9-Bi0" secondAttribute="bottom" constant="24" id="SXl-Ph-FKX"/>
                             <constraint firstItem="awN-BM-ORM" firstAttribute="centerX" secondItem="rgp-r7-bwI" secondAttribute="centerX" id="TPd-XT-Obl"/>
+                            <constraint firstItem="pIt-wT-dd0" firstAttribute="top" secondItem="rgp-r7-bwI" secondAttribute="top" constant="16" id="TRz-97-LGj"/>
                             <constraint firstItem="Fap-hw-9m5" firstAttribute="leading" secondItem="rgp-r7-bwI" secondAttribute="leading" constant="16" id="bX3-ub-akn"/>
-                            <constraint firstItem="ilT-KC-FrU" firstAttribute="top" secondItem="rgp-r7-bwI" secondAttribute="top" constant="16" id="ewX-Oc-vTh"/>
                             <constraint firstAttribute="bottom" secondItem="Fap-hw-9m5" secondAttribute="bottom" constant="16" id="fCT-5y-zLd"/>
                             <constraint firstItem="kCJ-W2-zBr" firstAttribute="leading" secondItem="vce-Zt-j1D" secondAttribute="trailing" constant="4" id="hpe-Xh-AIM"/>
                             <constraint firstAttribute="bottom" secondItem="kCJ-W2-zBr" secondAttribute="bottom" constant="16" id="ijO-cg-G6s"/>
                             <constraint firstAttribute="trailing" secondItem="FtK-5l-MEV" secondAttribute="trailing" constant="16" id="kRF-01-1mL"/>
+                            <constraint firstAttribute="trailing" secondItem="pIt-wT-dd0" secondAttribute="trailing" constant="16" id="pWS-Ue-Rhn"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -160,7 +155,8 @@
                 <outlet property="nameLabel" destination="FtK-5l-MEV" id="DqB-JP-vBM"/>
                 <outlet property="participantImageView" destination="vce-Zt-j1D" id="hxm-BJ-Pq9"/>
                 <outlet property="participantLabel" destination="kCJ-W2-zBr" id="1GW-kr-wSd"/>
-                <outlet property="priceLabel" destination="IPQ-M5-Tl8" id="foO-FA-TLA"/>
+                <outlet property="priceContainerView" destination="pIt-wT-dd0" id="77d-He-zRK"/>
+                <outlet property="priceLabel" destination="ogd-wQ-HNO" id="KDT-w6-eae"/>
                 <outlet property="typeContainerView" destination="QWx-Q9-Bi0" id="R0L-zz-xNL"/>
             </connections>
             <point key="canvasLocation" x="287.02290076335879" y="-66.197183098591552"/>

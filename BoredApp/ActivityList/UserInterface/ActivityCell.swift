@@ -16,6 +16,7 @@ final class ActivityCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var typeContainerView: UIView!
+    @IBOutlet weak var priceContainerView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var participantLabel: UILabel!
     @IBOutlet weak var participantImageView: UIImageView!
@@ -49,13 +50,12 @@ final class ActivityCell: UICollectionViewCell {
 //            cornerRadius: cornerRadius
 //        ).cgPath
 //        
-        containerView.startShimmeringAnimation()
     }
     
     func starLoad() {
         let views: [UIView] = [
             nameLabel,
-            priceLabel,
+            priceContainerView,
             participantLabel,
             typeContainerView,
             difficultyLabel
