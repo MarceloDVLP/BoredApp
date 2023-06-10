@@ -13,25 +13,36 @@ final class ActivityCell: UICollectionViewCell {
     var cornerRadius: CGFloat = 12
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var difficultyLabel: UILabel!
-    @IBOutlet weak var difficultyContainerView: UIView!
+    @IBOutlet weak var difficultyLoadingView: UIView!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var typeContainerView: UIView!
-    @IBOutlet weak var priceContainerView: UIView!
+    @IBOutlet weak var typeLoadingView: UIView!
+    @IBOutlet weak var priceLoadingView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameContainerView: UIView!
     @IBOutlet weak var participantLabel: UILabel!
     @IBOutlet weak var participantImageView: UIImageView!
-    @IBOutlet weak var participantContainerView: UIView!
+    @IBOutlet weak var participantLoadingView: UIView!
     @IBOutlet weak var activityType: UILabel!
+    var isLoading: Bool = false
     var color: UIColor?
+
+    lazy var shimmeringViews: [UIView] = [
+        nameContainerView,
+        typeLoadingView,
+        difficultyLoadingView,
+        priceLoadingView,
+        participantLoadingView
+    ]
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         contentView.layer.cornerRadius = cornerRadius
         contentView.layer.masksToBounds = true
+        containerView.layer.cornerRadius = 12
+        containerView.backgroundColor = .white
         
-
         
         let image = UIImage(named: "start")?.withTintColor(.white, renderingMode: .alwaysOriginal)
         actionButton.setImage(image, for: .normal)
@@ -40,52 +51,46 @@ final class ActivityCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-//        layer.cornerRadius = cornerRadius
-//        layer.masksToBounds = false
-//        layer.shadowRadius = 8.0
-//        layer.shadowOpacity = 0.5
-//        layer.shadowColor = UIColor.black.cgColor
-//        layer.shadowOffset = CGSize(width: 1, height: 5)
-//        // Improve scrolling performance with an explicit shadowPath
-//        layer.shadowPath = UIBezierPath(
-//            roundedRect: bounds,
-//            cornerRadius: cornerRadius
-//        ).cgPath
-//        
+        
+        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = false
+        layer.shadowRadius = 8.0
+        layer.shadowOpacity = 0.5
+        layer.shadowColor = UIColor.black.withAlphaComponent(0.7).cgColor
+        layer.shadowOffset = CGSize(width: 1, height: 5)
+        // Improve scrolling performance with an explicit shadowPath
+        layer.shadowPath = UIBezierPath(
+            roundedRect: bounds,
+            cornerRadius: cornerRadius
+        ).cgPath
+//
     }
     
     func starLoad() {
-        let views: [UIView] = [
-            nameLabel,
-            priceContainerView,
-            participantContainerView,
-            typeContainerView,
-            difficultyContainerView
-        ]
+        participantImageView.isHidden = true
         
-        views.forEach({ label in
-            label.backgroundColor = .lightGray
-            
-            label.startShimmeringAnimation()
+        shimmeringViews.forEach({ view in
+            view.backgroundColor = .lightGray
+            view.startShimmeringAnimation()
         })
-//
-        containerView.layer.cornerRadius = 12
-        containerView.layer.borderWidth = 1
-        containerView.layer.borderColor = UIColor.black.cgColor
-        containerView.startShimmeringAnimation()
+    }
+    
+    func stopLoading() {
+        shimmeringViews.forEach({ view in
+            hideViewWithAnimation(view)
+        })
+    }
+    
+    func hideViewWithAnimation(_ view: UIView) {
+        UIView.animate(withDuration: 0.5, animations: {
+            view.alpha = 0
+        })
     }
     
     func configure(_ activity: ActivityCodable) {
-        
-        nameLabel.stopShimmeringAnimation()
-        priceLabel.stopShimmeringAnimation()
-        difficultyLabel.stopShimmeringAnimation()
-        participantLabel.stopShimmeringAnimation()
-        activityType.stopShimmeringAnimation()
-        
+        stopLoading()
         nameLabel.text = activity.activity
         activityType.text = "\(activity.type) activity"
-
         if activity.price <= 0.3 {
             priceLabel.text = "🤑 cost"
         } else if activity.price <= 6.9 {
@@ -102,9 +107,13 @@ final class ActivityCell: UICollectionViewCell {
             difficultyLabel.text = "🥵 hard"
         }
         participantLabel.text = String(activity.participants)
-        
+        participantImageView.image = UIImage(named: "participant")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        participantImageView.isHidden = false
         if let type = ActivityType(rawValue: activity.type), let color = UIColor(hex: type.color) {
-            containerView.backgroundColor = color
+            UIView.animate(withDuration: 1, animations: {
+                self.containerView.backgroundColor = color
+            })
+
             activityType.textColor = color
             self.color = color
         }
@@ -198,56 +207,32 @@ extension UIView {
        case rightToLeft
      }
      
-     func startShimmeringAnimation(animationSpeed: Float = 1.4,
-                                   direction: Direction = .leftToRight,
-                                   repeatCount: Float = MAXFLOAT) {
-       
-       // Create color  ->2
-       let lightColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.1).cgColor
-       let blackColor = UIColor.black.cgColor
-       
-       // Create a CAGradientLayer  ->3
-       let gradientLayer = CAGradientLayer()
-       gradientLayer.colors = [blackColor, lightColor, blackColor]
-       gradientLayer.frame = CGRect(x: -self.bounds.size.width, y: -self.bounds.size.height, width: 3 * self.bounds.size.width, height: 3 * self.bounds.size.height)
-       
-       switch direction {
-       case .topToBottom:
-         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
-         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
-         
-       case .bottomToTop:
-         gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
-         gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
-         
-       case .leftToRight:
-         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-         
-       case .rightToLeft:
-         gradientLayer.startPoint = CGPoint(x: 1.0, y: 0.5)
-         gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.5)
-       }
-       
-       gradientLayer.locations =  [0.35, 0.50, 0.65] //[0.4, 0.6]
-       self.layer.mask = gradientLayer
-       
-       // Add animation over gradient Layer  ->4
-       CATransaction.begin()
-       let animation = CABasicAnimation(keyPath: "locations")
-       animation.fromValue = [0.0, 0.1, 0.2]
-       animation.toValue = [0.8, 0.9, 1.0]
-       animation.duration = CFTimeInterval(animationSpeed)
-       animation.repeatCount = repeatCount
-       CATransaction.setCompletionBlock { [weak self] in
-         guard let strongSelf = self else { return }
-         strongSelf.layer.mask = nil
-       }
-       gradientLayer.add(animation, forKey: "shimmerAnimation")
-       CATransaction.commit()
+    func startShimmeringAnimation() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.name = "shimmerlayer"
+        gradientLayer.frame = bounds
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        let gradientColorOne = UIColor(white: 0.90, alpha: 1.0).cgColor
+        let gradientColorTwo = UIColor(white: 0.95, alpha: 1.0).cgColor
+        gradientLayer.colors = [gradientColorOne, gradientColorTwo, gradientColorOne]
+        gradientLayer.locations = [0.0, 0.5, 1.0]
+        self.layer.addSublayer(gradientLayer)
+
+        let animation = CABasicAnimation(keyPath: "locations")
+        animation.fromValue = [-1.0, -0.5, 0.0]
+        animation.toValue = [1.0, 1.5, 2.0]
+        animation.repeatCount = .infinity
+        animation.duration = 1
+        gradientLayer.add(animation, forKey: animation.keyPath)
      }
-     
+    
      func stopShimmeringAnimation() {
-       self.layer.mask = nil
+         self.layer.mask = nil
+         self.layer.removeAllAnimations()
+         if let layer = self.layer.sublayers?.first(where: { $0.name == "shimmerlayer" }) {
+             layer.removeAllAnimations()
+             layer.removeFromSuperlayer()
+         }
      }
 }

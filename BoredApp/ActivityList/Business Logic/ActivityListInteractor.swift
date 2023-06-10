@@ -19,12 +19,12 @@ final class ActivityListInteractor {
     func fetch(_ completion: (([ActivityCodable]) -> ())?) {
         let group = DispatchGroup()
 
-        for _ in 0...6 {
+        for _ in 0...20 {
             group.enter()
             Task {
                 let activity = try await remoteLoader.fetch()
                 activities.append(activity)
-                //group.leave()
+                group.leave()
             }
         }
         
