@@ -7,6 +7,22 @@
 
 import UIKit
 
+final class ActivityInteractor {
+        
+    func start(activity: ActivityCodable) {
+        let coreData = AppDelegate.shared.coreDataManager
+        let activityEntity = ActivityEntity(context: coreData.managedContext)
+        activityEntity.accessibility = activity.accessibility
+        activityEntity.activity = activity.activity
+        activityEntity.key = activity.key
+        activityEntity.participants = Int32(activity.participants)
+        activityEntity.type = activity.type
+        activityEntity.price = activity.price
+        activityEntity.dateStart = Date.now
+        coreData.saveContext()
+    }
+}
+
 final class ActivityCell: UICollectionViewCell {
 
     static let identifier: String = String(describing: ActivityCell.self)
@@ -24,6 +40,9 @@ final class ActivityCell: UICollectionViewCell {
     @IBOutlet weak var participantLoadingView: UIView!
     @IBOutlet weak var activityType: UILabel!
 
+    let interactor = ActivityInteractor()
+    var activity: ActivityCodable?
+    
     lazy var shimmeringViews: [UIView] = [
         nameContainerView,
         typeLoadingView,
@@ -68,6 +87,12 @@ final class ActivityCell: UICollectionViewCell {
         containerView.backgroundColor = .white
     }
     
+    @IBAction func didTapButton(_ sender: Any) {
+        guard let activity = self.activity else { return }
+        actionButton.setTitle("Complete Activity", for: .normal)
+        interactor.start(activity: activity)
+    }
+    
     func stopLoading() {
         shimmeringViews.forEach({ view in
             hideViewWithAnimation(view)
@@ -81,6 +106,7 @@ final class ActivityCell: UICollectionViewCell {
     }
     
     func configure(_ activity: ActivityCodable) {
+        self.activity = activity
         stopLoading()
         nameLabel.text = activity.activity
         activityType.text = "\(activity.type) activity"

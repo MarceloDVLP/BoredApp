@@ -12,6 +12,10 @@
 		C73D377B2A34BB34006C1E82 /* FilterActivityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C73D377A2A34BB34006C1E82 /* FilterActivityHeaderView.xib */; };
 		C73D377D2A34BD9E006C1E82 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D377C2A34BD9E006C1E82 /* FilterViewController.swift */; };
 		C73D377F2A34F935006C1E82 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D377E2A34F935006C1E82 /* FilterCell.swift */; };
+		C73D37832A351215006C1E82 /* BoredAppDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C73D37812A351215006C1E82 /* BoredAppDataModel.xcdatamodeld */; };
+		C73D37852A35122C006C1E82 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D37842A35122C006C1E82 /* CoreDataManager.swift */; };
+		C73D378E2A3513AD006C1E82 /* ActivityEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D378B2A351385006C1E82 /* ActivityEntity+CoreDataProperties.swift */; };
+		C73D378F2A3513C4006C1E82 /* ActivityEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D378A2A351385006C1E82 /* ActivityEntity+CoreDataClass.swift */; };
 		C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73DC1682A33703E00F2659B /* AppDelegate.swift */; };
 		C73DC16B2A33703E00F2659B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73DC16A2A33703E00F2659B /* SceneDelegate.swift */; };
 		C73DC16D2A33703E00F2659B /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73DC16C2A33703E00F2659B /* ActivityListViewController.swift */; };
@@ -44,6 +48,10 @@
 		C73D377A2A34BB34006C1E82 /* FilterActivityHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterActivityHeaderView.xib; sourceTree = "<group>"; };
 		C73D377C2A34BD9E006C1E82 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		C73D377E2A34F935006C1E82 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		C73D37822A351215006C1E82 /* BoredAppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BoredAppDataModel.xcdatamodel; sourceTree = "<group>"; };
+		C73D37842A35122C006C1E82 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C73D378A2A351385006C1E82 /* ActivityEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C73D378B2A351385006C1E82 /* ActivityEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C73DC1652A33703E00F2659B /* BoredApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoredApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73DC1682A33703E00F2659B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C73DC16A2A33703E00F2659B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +98,17 @@
 			path = "Business Logic";
 			sourceTree = "<group>";
 		};
+		C73D37802A3511FE006C1E82 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C73D378A2A351385006C1E82 /* ActivityEntity+CoreDataClass.swift */,
+				C73D378B2A351385006C1E82 /* ActivityEntity+CoreDataProperties.swift */,
+				C73D37812A351215006C1E82 /* BoredAppDataModel.xcdatamodeld */,
+				C73D37842A35122C006C1E82 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		C73DC15C2A33703E00F2659B = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +130,7 @@
 		C73DC1672A33703E00F2659B /* BoredApp */ = {
 			isa = PBXGroup;
 			children = (
+				C73D37802A3511FE006C1E82 /* CoreData */,
 				C73DC17D2A33725B00F2659B /* Application */,
 				C73DC17C2A33722400F2659B /* ActivityList */,
 				C7E1BEED2A34A74C00693593 /* Extensions */,
@@ -297,8 +317,11 @@
 				C7E1BEF12A34A77900693593 /* UIView+Helpers.swift in Sources */,
 				C75C5A5F2A337E930090766E /* ClientHTTP.swift in Sources */,
 				C73DC16D2A33703E00F2659B /* ActivityListViewController.swift in Sources */,
+				C73D37852A35122C006C1E82 /* CoreDataManager.swift in Sources */,
 				C75C5A4B2A3373CB0090766E /* RemoteActivityLoader.swift in Sources */,
+				C73D37832A351215006C1E82 /* BoredAppDataModel.xcdatamodeld in Sources */,
 				C70B0C782A33AC6B0058DAE3 /* ActivityListInteractor.swift in Sources */,
+				C73D378E2A3513AD006C1E82 /* ActivityEntity+CoreDataProperties.swift in Sources */,
 				C73D377F2A34F935006C1E82 /* FilterCell.swift in Sources */,
 				C7E1BEEF2A34A76200693593 /* UIColor+Helpers.swift in Sources */,
 				C73D377D2A34BD9E006C1E82 /* FilterViewController.swift in Sources */,
@@ -306,6 +329,7 @@
 				C75C5A5D2A337C800090766E /* ActivityCodable.swift in Sources */,
 				C75C5A632A33839D0090766E /* ActivityCell.swift in Sources */,
 				C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */,
+				C73D378F2A3513C4006C1E82 /* ActivityEntity+CoreDataClass.swift in Sources */,
 				C73DC16B2A33703E00F2659B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,7 +486,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H3CATS6866;
+				DEVELOPMENT_TEAM = A5SHVFF2GG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BoredApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -478,7 +502,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = trio.challenge.marcelocarvalho.com.BoredApp;
+				PRODUCT_BUNDLE_IDENTIFIER = trio.challenge.marcelocarvalho.com.BoredAppNo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -494,7 +518,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H3CATS6866;
+				DEVELOPMENT_TEAM = A5SHVFF2GG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BoredApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -510,7 +534,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = trio.challenge.marcelocarvalho.com.BoredApp;
+				PRODUCT_BUNDLE_IDENTIFIER = trio.challenge.marcelocarvalho.com.BoredAppNo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -587,6 +611,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C73D37812A351215006C1E82 /* BoredAppDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C73D37822A351215006C1E82 /* BoredAppDataModel.xcdatamodel */,
+			);
+			currentVersion = C73D37822A351215006C1E82 /* BoredAppDataModel.xcdatamodel */;
+			path = BoredAppDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C73DC15D2A33703E00F2659B /* Project object */;
 }

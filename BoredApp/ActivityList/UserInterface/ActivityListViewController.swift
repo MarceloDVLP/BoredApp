@@ -95,6 +95,11 @@ extension ActivityListViewController: UICollectionViewDelegateFlowLayout {
         return size
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let isLastCell = indexPath.item == activities.count-1
+        prepareToPaginate()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 16,
                             left: 16,
@@ -104,6 +109,13 @@ extension ActivityListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         32
+    }
+    
+    func prepareToPaginate() {
+//        for index in activities.count-1..activities.count+3 {
+//            collectionView.insertItems(at: )
+//
+//        }
     }
 }
 
