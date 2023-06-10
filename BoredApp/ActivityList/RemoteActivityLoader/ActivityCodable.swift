@@ -17,7 +17,7 @@ struct ActivityCodable: Codable {
     let link: String?
 }
 
-enum ActivityType: String {
+enum ActivityType: String, CaseIterable {
     case education
     case recreational
     case social

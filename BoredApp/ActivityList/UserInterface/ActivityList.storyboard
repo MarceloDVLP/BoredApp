@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eXt-aL-Vgw">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -8,6 +8,28 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Bored App-->
+        <scene sceneID="wmu-Ut-MPs">
+            <objects>
+                <navigationController title="Bored App" hidesBarsOnSwipe="YES" id="eXt-aL-Vgw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="ITM-h3-hja">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3ZE-nh-exc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K0B-5M-OUo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-782" y="-35"/>
+        </scene>
         <!--Activity List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -31,28 +53,18 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="mU2-t4-TB1"/>
                                 </connections>
                             </collectionView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="05Y-VF-iv8">
-                                <rect key="frame" x="176.66666666666666" y="406" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="EBY-NP-LaW"/>
-                                    <constraint firstAttribute="height" constant="40" id="POM-dF-nHx"/>
-                                </constraints>
-                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="o42-04-8V5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="2VJ-WZ-Asg"/>
                             <constraint firstItem="o42-04-8V5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ONR-CG-Glu"/>
-                            <constraint firstItem="05Y-VF-iv8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YGq-4o-dhT"/>
                             <constraint firstAttribute="bottom" secondItem="o42-04-8V5" secondAttribute="bottom" id="nCZ-2W-V0e"/>
-                            <constraint firstItem="05Y-VF-iv8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pIj-Ts-Yzs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o42-04-8V5" secondAttribute="trailing" id="pqd-Fn-bjd"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="f17-Al-PuM"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="05Y-VF-iv8" id="xZj-W8-WlK"/>
                         <outlet property="collectionView" destination="o42-04-8V5" id="ybl-Fi-Tec"/>
                     </connections>
                 </viewController>

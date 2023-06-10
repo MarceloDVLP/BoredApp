@@ -10,7 +10,6 @@ import UIKit
 final class ActivityCell: UICollectionViewCell {
 
     static let identifier: String = String(describing: ActivityCell.self)
-    var cornerRadius: CGFloat = 12
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var difficultyLabel: UILabel!
     @IBOutlet weak var difficultyLoadingView: UIView!
@@ -36,7 +35,7 @@ final class ActivityCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        contentView.layer.cornerRadius = cornerRadius
+        contentView.layer.cornerRadius = 12
         contentView.layer.masksToBounds = true
         containerView.layer.cornerRadius = 12
         containerView.backgroundColor = .white
@@ -54,10 +53,19 @@ final class ActivityCell: UICollectionViewCell {
     
     func starLoading() {
         participantImageView.isHidden = true
+        backgroundColor = .white
         shimmeringViews.forEach({ view in
             view.backgroundColor = .lightGray
+            view.alpha = 1
             view.startShimmeringAnimation()
         })
+        
+        nameLabel.text = nil
+        activityType.text = nil
+        priceLabel.text = nil
+        difficultyLabel.text = nil
+        participantLabel.text = nil
+        containerView.backgroundColor = .white
     }
     
     func stopLoading() {

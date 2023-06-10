@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C70B0C752A3385980058DAE3 /* ActivityList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70B0C742A3385980058DAE3 /* ActivityList.storyboard */; };
 		C70B0C782A33AC6B0058DAE3 /* ActivityListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B0C772A33AC6B0058DAE3 /* ActivityListInteractor.swift */; };
+		C73D377B2A34BB34006C1E82 /* FilterActivityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C73D377A2A34BB34006C1E82 /* FilterActivityHeaderView.xib */; };
+		C73D377D2A34BD9E006C1E82 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D377C2A34BD9E006C1E82 /* FilterViewController.swift */; };
+		C73D377F2A34F935006C1E82 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D377E2A34F935006C1E82 /* FilterCell.swift */; };
 		C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73DC1682A33703E00F2659B /* AppDelegate.swift */; };
 		C73DC16B2A33703E00F2659B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73DC16A2A33703E00F2659B /* SceneDelegate.swift */; };
 		C73DC16D2A33703E00F2659B /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73DC16C2A33703E00F2659B /* ActivityListViewController.swift */; };
@@ -22,6 +25,7 @@
 		C75C5A642A33839D0090766E /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C75C5A622A33839D0090766E /* ActivityCell.xib */; };
 		C7E1BEEF2A34A76200693593 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1BEEE2A34A76200693593 /* UIColor+Helpers.swift */; };
 		C7E1BEF12A34A77900693593 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1BEF02A34A77900693593 /* UIView+Helpers.swift */; };
+		C7E1BEF42A34ABC500693593 /* FilterActivityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1BEF22A34ABC500693593 /* FilterActivityHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,9 @@
 /* Begin PBXFileReference section */
 		C70B0C742A3385980058DAE3 /* ActivityList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActivityList.storyboard; sourceTree = "<group>"; };
 		C70B0C772A33AC6B0058DAE3 /* ActivityListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListInteractor.swift; sourceTree = "<group>"; };
+		C73D377A2A34BB34006C1E82 /* FilterActivityHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterActivityHeaderView.xib; sourceTree = "<group>"; };
+		C73D377C2A34BD9E006C1E82 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		C73D377E2A34F935006C1E82 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		C73DC1652A33703E00F2659B /* BoredApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoredApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C73DC1682A33703E00F2659B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C73DC16A2A33703E00F2659B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +61,7 @@
 		C75C5A622A33839D0090766E /* ActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityCell.xib; sourceTree = "<group>"; };
 		C7E1BEEE2A34A76200693593 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
 		C7E1BEF02A34A77900693593 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
+		C7E1BEF22A34ABC500693593 /* FilterActivityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterActivityHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +162,7 @@
 		C75C5A602A3383740090766E /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				C7E1BEF62A34BB0B00693593 /* Filter */,
 				C70B0C742A3385980058DAE3 /* ActivityList.storyboard */,
 				C73DC16C2A33703E00F2659B /* ActivityListViewController.swift */,
 				C75C5A612A33839D0090766E /* ActivityCell.swift */,
@@ -169,6 +178,17 @@
 				C7E1BEF02A34A77900693593 /* UIView+Helpers.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C7E1BEF62A34BB0B00693593 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				C73D377A2A34BB34006C1E82 /* FilterActivityHeaderView.xib */,
+				C7E1BEF22A34ABC500693593 /* FilterActivityHeaderView.swift */,
+				C73D377C2A34BD9E006C1E82 /* FilterViewController.swift */,
+				C73D377E2A34F935006C1E82 /* FilterCell.swift */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C73D377B2A34BB34006C1E82 /* FilterActivityHeaderView.xib in Resources */,
 				C73DC1752A33703F00F2659B /* LaunchScreen.storyboard in Resources */,
 				C73DC1722A33703F00F2659B /* Assets.xcassets in Resources */,
 				C75C5A642A33839D0090766E /* ActivityCell.xib in Resources */,
@@ -278,7 +299,10 @@
 				C73DC16D2A33703E00F2659B /* ActivityListViewController.swift in Sources */,
 				C75C5A4B2A3373CB0090766E /* RemoteActivityLoader.swift in Sources */,
 				C70B0C782A33AC6B0058DAE3 /* ActivityListInteractor.swift in Sources */,
+				C73D377F2A34F935006C1E82 /* FilterCell.swift in Sources */,
 				C7E1BEEF2A34A76200693593 /* UIColor+Helpers.swift in Sources */,
+				C73D377D2A34BD9E006C1E82 /* FilterViewController.swift in Sources */,
+				C7E1BEF42A34ABC500693593 /* FilterActivityHeaderView.swift in Sources */,
 				C75C5A5D2A337C800090766E /* ActivityCodable.swift in Sources */,
 				C75C5A632A33839D0090766E /* ActivityCell.swift in Sources */,
 				C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */,
@@ -444,6 +468,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = ActivityList;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -474,6 +500,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = ActivityList;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;

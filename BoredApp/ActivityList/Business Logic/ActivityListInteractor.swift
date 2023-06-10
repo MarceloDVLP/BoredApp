@@ -15,14 +15,16 @@ final class ActivityListInteractor {
     }()
     
     var activities: [ActivityCodable] = []
+    
+    func fetch(filters: [String] = [], _ completion: (([ActivityCodable]) -> ())?) {
+        activities = []
         
-    func fetch(_ completion: (([ActivityCodable]) -> ())?) {
         let group = DispatchGroup()
 
-        for _ in 0...20 {
+        for _ in 0...10 {
             group.enter()
             Task {
-                let activity = try await remoteLoader.fetch()
+                let activity = try await remoteLoader.fetch(filters)
                 activities.append(activity)
                 group.leave()
             }
