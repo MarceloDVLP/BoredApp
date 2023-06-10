@@ -48,7 +48,7 @@ extension ActivityListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ActivityCell.identifier, for: indexPath) as! ActivityCell
-        isCollectionLoading ?  cell.starLoad() : cell.configure(activities[indexPath.item])
+        isCollectionLoading ?  cell.starLoading() : cell.configure(activities[indexPath.item])
         return cell
     }
         

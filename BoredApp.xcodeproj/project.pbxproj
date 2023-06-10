@@ -20,6 +20,8 @@
 		C75C5A5F2A337E930090766E /* ClientHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A5E2A337E930090766E /* ClientHTTP.swift */; };
 		C75C5A632A33839D0090766E /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A612A33839D0090766E /* ActivityCell.swift */; };
 		C75C5A642A33839D0090766E /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C75C5A622A33839D0090766E /* ActivityCell.xib */; };
+		C7E1BEEF2A34A76200693593 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1BEEE2A34A76200693593 /* UIColor+Helpers.swift */; };
+		C7E1BEF12A34A77900693593 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1BEF02A34A77900693593 /* UIView+Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		C75C5A5E2A337E930090766E /* ClientHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHTTP.swift; sourceTree = "<group>"; };
 		C75C5A612A33839D0090766E /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
 		C75C5A622A33839D0090766E /* ActivityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityCell.xib; sourceTree = "<group>"; };
+		C7E1BEEE2A34A76200693593 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
+		C7E1BEF02A34A77900693593 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 			children = (
 				C73DC17D2A33725B00F2659B /* Application */,
 				C73DC17C2A33722400F2659B /* ActivityList */,
+				C7E1BEED2A34A74C00693593 /* Extensions */,
 				C73DC1712A33703F00F2659B /* Assets.xcassets */,
 				C73DC1732A33703F00F2659B /* LaunchScreen.storyboard */,
 				C73DC1762A33703F00F2659B /* Info.plist */,
@@ -155,6 +160,15 @@
 				C75C5A622A33839D0090766E /* ActivityCell.xib */,
 			);
 			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		C7E1BEED2A34A74C00693593 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C7E1BEEE2A34A76200693593 /* UIColor+Helpers.swift */,
+				C7E1BEF02A34A77900693593 /* UIView+Helpers.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,10 +273,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7E1BEF12A34A77900693593 /* UIView+Helpers.swift in Sources */,
 				C75C5A5F2A337E930090766E /* ClientHTTP.swift in Sources */,
 				C73DC16D2A33703E00F2659B /* ActivityListViewController.swift in Sources */,
 				C75C5A4B2A3373CB0090766E /* RemoteActivityLoader.swift in Sources */,
 				C70B0C782A33AC6B0058DAE3 /* ActivityListInteractor.swift in Sources */,
+				C7E1BEEF2A34A76200693593 /* UIColor+Helpers.swift in Sources */,
 				C75C5A5D2A337C800090766E /* ActivityCodable.swift in Sources */,
 				C75C5A632A33839D0090766E /* ActivityCell.swift in Sources */,
 				C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */,
