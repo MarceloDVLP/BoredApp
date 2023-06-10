@@ -7,21 +7,7 @@
 
 import UIKit
 
-final class ActivityInteractor {
-        
-    func start(activity: ActivityCodable) {
-        let coreData = AppDelegate.shared.coreDataManager
-        let activityEntity = ActivityEntity(context: coreData.managedContext)
-        activityEntity.accessibility = activity.accessibility
-        activityEntity.activity = activity.activity
-        activityEntity.key = activity.key
-        activityEntity.participants = Int32(activity.participants)
-        activityEntity.type = activity.type
-        activityEntity.price = activity.price
-        activityEntity.dateStart = Date.now
-        coreData.saveContext()
-    }
-}
+
 
 final class ActivityCell: UICollectionViewCell {
 

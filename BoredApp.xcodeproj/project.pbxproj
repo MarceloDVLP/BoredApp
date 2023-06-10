@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C70B0C752A3385980058DAE3 /* ActivityList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70B0C742A3385980058DAE3 /* ActivityList.storyboard */; };
 		C70B0C782A33AC6B0058DAE3 /* ActivityListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70B0C772A33AC6B0058DAE3 /* ActivityListInteractor.swift */; };
-		C73D377B2A34BB34006C1E82 /* FilterActivityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C73D377A2A34BB34006C1E82 /* FilterActivityHeaderView.xib */; };
 		C73D377D2A34BD9E006C1E82 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D377C2A34BD9E006C1E82 /* FilterViewController.swift */; };
 		C73D377F2A34F935006C1E82 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D377E2A34F935006C1E82 /* FilterCell.swift */; };
 		C73D37832A351215006C1E82 /* BoredAppDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C73D37812A351215006C1E82 /* BoredAppDataModel.xcdatamodeld */; };
@@ -21,6 +20,8 @@
 		C73DC16D2A33703E00F2659B /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73DC16C2A33703E00F2659B /* ActivityListViewController.swift */; };
 		C73DC1722A33703F00F2659B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73DC1712A33703F00F2659B /* Assets.xcassets */; };
 		C73DC1752A33703F00F2659B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DC1732A33703F00F2659B /* LaunchScreen.storyboard */; };
+		C74862C32A3519B900BD0EC5 /* FilterActivityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74862C22A3519B900BD0EC5 /* FilterActivityHeaderView.xib */; };
+		C74862C52A351A6300BD0EC5 /* ActivityInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74862C42A351A6300BD0EC5 /* ActivityInteractor.swift */; };
 		C75C5A4B2A3373CB0090766E /* RemoteActivityLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */; };
 		C75C5A532A3377FE0090766E /* RemoteActivityLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A522A3377FE0090766E /* RemoteActivityLoaderTests.swift */; };
 		C75C5A5D2A337C800090766E /* ActivityCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A5B2A337C520090766E /* ActivityCodable.swift */; };
@@ -45,7 +46,6 @@
 /* Begin PBXFileReference section */
 		C70B0C742A3385980058DAE3 /* ActivityList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActivityList.storyboard; sourceTree = "<group>"; };
 		C70B0C772A33AC6B0058DAE3 /* ActivityListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListInteractor.swift; sourceTree = "<group>"; };
-		C73D377A2A34BB34006C1E82 /* FilterActivityHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterActivityHeaderView.xib; sourceTree = "<group>"; };
 		C73D377C2A34BD9E006C1E82 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		C73D377E2A34F935006C1E82 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		C73D37822A351215006C1E82 /* BoredAppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BoredAppDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -59,6 +59,8 @@
 		C73DC1712A33703F00F2659B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C73DC1742A33703F00F2659B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C73DC1762A33703F00F2659B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C74862C22A3519B900BD0EC5 /* FilterActivityHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterActivityHeaderView.xib; sourceTree = "<group>"; };
+		C74862C42A351A6300BD0EC5 /* ActivityInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInteractor.swift; sourceTree = "<group>"; };
 		C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteActivityLoader.swift; sourceTree = "<group>"; };
 		C75C5A502A3377FE0090766E /* BoredAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoredAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75C5A522A3377FE0090766E /* RemoteActivityLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteActivityLoaderTests.swift; sourceTree = "<group>"; };
@@ -93,7 +95,10 @@
 		C70B0C762A338B710058DAE3 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
+				C73D37802A3511FE006C1E82 /* CoreData */,
+				C75C5A492A3373AE0090766E /* RemoteLoader */,
 				C70B0C772A33AC6B0058DAE3 /* ActivityListInteractor.swift */,
+				C74862C42A351A6300BD0EC5 /* ActivityInteractor.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -107,6 +112,43 @@
 				C73D37842A35122C006C1E82 /* CoreDataManager.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C73D37932A351908006C1E82 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C73DC1712A33703F00F2659B /* Assets.xcassets */,
+				C73DC1732A33703F00F2659B /* LaunchScreen.storyboard */,
+				C73DC1762A33703F00F2659B /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C73D37942A351953006C1E82 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C73DC17C2A33722400F2659B /* ActivityList */,
+				C7E1BEF62A34BB0B00693593 /* ActivityFilter */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		C73D37952A35197A006C1E82 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				C74862C22A3519B900BD0EC5 /* FilterActivityHeaderView.xib */,
+				C7E1BEF22A34ABC500693593 /* FilterActivityHeaderView.swift */,
+				C73D377C2A34BD9E006C1E82 /* FilterViewController.swift */,
+				C73D377E2A34F935006C1E82 /* FilterCell.swift */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		C73D37962A351983006C1E82 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Business Logic";
 			sourceTree = "<group>";
 		};
 		C73DC15C2A33703E00F2659B = {
@@ -130,13 +172,9 @@
 		C73DC1672A33703E00F2659B /* BoredApp */ = {
 			isa = PBXGroup;
 			children = (
-				C73D37802A3511FE006C1E82 /* CoreData */,
+				C73D37942A351953006C1E82 /* Scenes */,
 				C73DC17D2A33725B00F2659B /* Application */,
-				C73DC17C2A33722400F2659B /* ActivityList */,
 				C7E1BEED2A34A74C00693593 /* Extensions */,
-				C73DC1712A33703F00F2659B /* Assets.xcassets */,
-				C73DC1732A33703F00F2659B /* LaunchScreen.storyboard */,
-				C73DC1762A33703F00F2659B /* Info.plist */,
 			);
 			path = BoredApp;
 			sourceTree = "<group>";
@@ -146,7 +184,6 @@
 			children = (
 				C70B0C762A338B710058DAE3 /* Business Logic */,
 				C75C5A602A3383740090766E /* UserInterface */,
-				C75C5A492A3373AE0090766E /* RemoteActivityLoader */,
 			);
 			path = ActivityList;
 			sourceTree = "<group>";
@@ -154,20 +191,21 @@
 		C73DC17D2A33725B00F2659B /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				C73D37932A351908006C1E82 /* Resources */,
 				C73DC1682A33703E00F2659B /* AppDelegate.swift */,
 				C73DC16A2A33703E00F2659B /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
 		};
-		C75C5A492A3373AE0090766E /* RemoteActivityLoader */ = {
+		C75C5A492A3373AE0090766E /* RemoteLoader */ = {
 			isa = PBXGroup;
 			children = (
 				C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */,
 				C75C5A5B2A337C520090766E /* ActivityCodable.swift */,
 				C75C5A5E2A337E930090766E /* ClientHTTP.swift */,
 			);
-			path = RemoteActivityLoader;
+			path = RemoteLoader;
 			sourceTree = "<group>";
 		};
 		C75C5A512A3377FE0090766E /* BoredAppTests */ = {
@@ -182,7 +220,6 @@
 		C75C5A602A3383740090766E /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
-				C7E1BEF62A34BB0B00693593 /* Filter */,
 				C70B0C742A3385980058DAE3 /* ActivityList.storyboard */,
 				C73DC16C2A33703E00F2659B /* ActivityListViewController.swift */,
 				C75C5A612A33839D0090766E /* ActivityCell.swift */,
@@ -200,15 +237,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C7E1BEF62A34BB0B00693593 /* Filter */ = {
+		C7E1BEF62A34BB0B00693593 /* ActivityFilter */ = {
 			isa = PBXGroup;
 			children = (
-				C73D377A2A34BB34006C1E82 /* FilterActivityHeaderView.xib */,
-				C7E1BEF22A34ABC500693593 /* FilterActivityHeaderView.swift */,
-				C73D377C2A34BD9E006C1E82 /* FilterViewController.swift */,
-				C73D377E2A34F935006C1E82 /* FilterCell.swift */,
+				C73D37962A351983006C1E82 /* Business Logic */,
+				C73D37952A35197A006C1E82 /* User Interface */,
 			);
-			path = Filter;
+			path = ActivityFilter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,7 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C73D377B2A34BB34006C1E82 /* FilterActivityHeaderView.xib in Resources */,
+				C74862C32A3519B900BD0EC5 /* FilterActivityHeaderView.xib in Resources */,
 				C73DC1752A33703F00F2659B /* LaunchScreen.storyboard in Resources */,
 				C73DC1722A33703F00F2659B /* Assets.xcassets in Resources */,
 				C75C5A642A33839D0090766E /* ActivityCell.xib in Resources */,
@@ -329,6 +364,7 @@
 				C75C5A5D2A337C800090766E /* ActivityCodable.swift in Sources */,
 				C75C5A632A33839D0090766E /* ActivityCell.swift in Sources */,
 				C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */,
+				C74862C52A351A6300BD0EC5 /* ActivityInteractor.swift in Sources */,
 				C73D378F2A3513C4006C1E82 /* ActivityEntity+CoreDataClass.swift in Sources */,
 				C73DC16B2A33703E00F2659B /* SceneDelegate.swift in Sources */,
 			);
@@ -488,7 +524,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A5SHVFF2GG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BoredApp/Info.plist;
+				INFOPLIST_FILE = BoredApp/Application/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = ActivityList;
@@ -520,7 +556,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A5SHVFF2GG;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BoredApp/Info.plist;
+				INFOPLIST_FILE = BoredApp/Application/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = ActivityList;

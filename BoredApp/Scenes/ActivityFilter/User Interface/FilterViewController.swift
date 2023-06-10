@@ -10,7 +10,6 @@ final class FilterViewController: UIViewController {
     private lazy var registerButton: UIButton = {
         let registerButton = UIButton()
         registerButton.transparentStyle(title: "Search Activities")
-        //registerButton.layer.borderWidth = 0
         registerButton.addTarget(self, action: #selector(didTapSearch), for: .touchUpInside)
         return registerButton
     }()
