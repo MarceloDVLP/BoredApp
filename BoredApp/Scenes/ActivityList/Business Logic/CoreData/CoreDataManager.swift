@@ -1,6 +1,7 @@
 import CoreData
 
-class CoreDataManager {
+final class CoreDataManager {
+    
     private let modelName: String
 
     init(modelName: String) {
@@ -28,8 +29,7 @@ class CoreDataManager {
         }
     }
     
-    func save(_ activity: ActivityModel, state: ActivityState, date: Date) {
-        
+    func save(_ activity: ActivityModel, state: ActivityState, date: Date) {        
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let self = self else { return }
             let activityEntity = ActivityEntity(context: self.managedContext)

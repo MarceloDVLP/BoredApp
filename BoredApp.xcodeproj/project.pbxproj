@@ -21,6 +21,7 @@
 		C73DC1722A33703F00F2659B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73DC1712A33703F00F2659B /* Assets.xcassets */; };
 		C73DC1752A33703F00F2659B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DC1732A33703F00F2659B /* LaunchScreen.storyboard */; };
 		C74862C32A3519B900BD0EC5 /* FilterActivityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74862C22A3519B900BD0EC5 /* FilterActivityHeaderView.xib */; };
+		C74862C82A3669CA00BD0EC5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74862C72A3669CA00BD0EC5 /* Colors.swift */; };
 		C75C5A4B2A3373CB0090766E /* RemoteActivityLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */; };
 		C75C5A532A3377FE0090766E /* RemoteActivityLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A522A3377FE0090766E /* RemoteActivityLoaderTests.swift */; };
 		C75C5A5D2A337C800090766E /* ActivityCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A5B2A337C520090766E /* ActivityCodable.swift */; };
@@ -59,6 +60,7 @@
 		C73DC1742A33703F00F2659B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C73DC1762A33703F00F2659B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C74862C22A3519B900BD0EC5 /* FilterActivityHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterActivityHeaderView.xib; sourceTree = "<group>"; };
+		C74862C72A3669CA00BD0EC5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteActivityLoader.swift; sourceTree = "<group>"; };
 		C75C5A502A3377FE0090766E /* BoredAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoredAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75C5A522A3377FE0090766E /* RemoteActivityLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteActivityLoaderTests.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		C73DC1672A33703E00F2659B /* BoredApp */ = {
 			isa = PBXGroup;
 			children = (
+				C74862C62A3669BC00BD0EC5 /* Utilities */,
 				C73D37942A351953006C1E82 /* Scenes */,
 				C73DC17D2A33725B00F2659B /* Application */,
 				C7E1BEED2A34A74C00693593 /* Extensions */,
@@ -193,6 +196,14 @@
 				C73DC16A2A33703E00F2659B /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		C74862C62A3669BC00BD0EC5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C74862C72A3669CA00BD0EC5 /* Colors.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		C75C5A492A3373AE0090766E /* RemoteLoader */ = {
@@ -347,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7E1BEF12A34A77900693593 /* UIView+Helpers.swift in Sources */,
+				C74862C82A3669CA00BD0EC5 /* Colors.swift in Sources */,
 				C75C5A5F2A337E930090766E /* ClientHTTP.swift in Sources */,
 				C73DC16D2A33703E00F2659B /* ActivityListViewController.swift in Sources */,
 				C73D37852A35122C006C1E82 /* CoreDataManager.swift in Sources */,

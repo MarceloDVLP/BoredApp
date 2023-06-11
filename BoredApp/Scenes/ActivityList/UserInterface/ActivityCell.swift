@@ -8,7 +8,6 @@
 import UIKit
 
 protocol ActivityCellDelegate: AnyObject {
-    
     func userDidTapButton(at cell: ActivityCell)
 }
 

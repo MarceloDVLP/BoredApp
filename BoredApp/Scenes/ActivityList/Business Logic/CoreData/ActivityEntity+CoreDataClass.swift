@@ -10,5 +10,5 @@ import Foundation
 import CoreData
 
 @objc(ActivityEntity)
-public class ActivityEntity: NSManagedObject {
+public final class ActivityEntity: NSManagedObject {
 }
