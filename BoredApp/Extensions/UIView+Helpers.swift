@@ -124,12 +124,48 @@ extension UIButton {
         setAttributedTitle(attributedString, for: .normal)
         setAttributedTitle(highlightedString, for: .highlighted)
     }
+    
+    func finishedStyle(title: String) {
+        backgroundColor = .clear
+        layer.borderWidth = 0
+
+        let attributedString = NSAttributedString(string: title, attributes:
+                                                    [.underlineStyle: NSUnderlineStyle.single.rawValue,
+                                                    .foregroundColor: UIColor.white,
+                                                     .font: UIFont.systemFont(ofSize: 12, weight: .semibold)])
+
+        setAttributedTitle(attributedString, for: .normal)
+        setAttributedTitle(attributedString, for: .highlighted)
+    }
+    
+    func strokeText(_ title: String) {
+        let attributedString = NSAttributedString(string: title, attributes:
+                                                    [.strokeWidth: 2,
+                                                     .strokeColor: UIColor.darkGray,
+                                                    .foregroundColor: UIColor.white,
+                                                     .font: UIFont.systemFont(ofSize: 12, weight: .semibold)])
+        
+        setAttributedTitle(attributedString, for: .normal)
+        setAttributedTitle(attributedString, for: .highlighted)
+    }
 }
 
 extension UIFont {
     
     static func titleFont() -> UIFont {
         return UIFont.systemFont(ofSize: 15, weight: .heavy)
+    }
+}
+
+extension UILabel {
+    
+    func strikethroughText(_ title: String, size: CGFloat) {
+        let attributedString = NSAttributedString(string: title, attributes:
+                                                     [.strikethroughStyle: 2,
+                                                      .foregroundColor: UIColor.white,
+                                                      .font: UIFont.systemFont(ofSize: size, weight: .semibold)])
+        
+        attributedText = attributedString
     }
 }
 

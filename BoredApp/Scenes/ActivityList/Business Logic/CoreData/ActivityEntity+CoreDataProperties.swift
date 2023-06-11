@@ -22,7 +22,9 @@ extension ActivityEntity {
     @NSManaged public var participants: Int32
     @NSManaged public var price: Double
     @NSManaged public var key: String
-    @NSManaged public var dateStart: Date
+    @NSManaged public var dateStart: Date?
+    @NSManaged public var dateEnd: Date?
+    @NSManaged public var state: String
 }
 
 extension ActivityEntity : Identifiable {

@@ -28,7 +28,7 @@ class CoreDataManager {
         }
     }
     
-    func save(_ activity: ActivityCodable) {
+    func save(_ activity: ActivityCodable, state: ActivityState) -> ActivityEntity {
         let activityEntity = ActivityEntity(context: managedContext)
         activityEntity.accessibility = activity.accessibility
         activityEntity.activity = activity.activity
@@ -37,7 +37,9 @@ class CoreDataManager {
         activityEntity.type = activity.type
         activityEntity.price = activity.price
         activityEntity.dateStart = Date.now
+        activityEntity.state = state.rawValue
         saveContext()
+        return activityEntity
     }
     
     func getUserActivities() -> [ActivityCodable] {
@@ -59,6 +61,17 @@ class CoreDataManager {
         } catch let error as NSError {
             print("Fetch error: \(error) description: \(error.userInfo)")
             return []
+        }
+    }
+    
+    func get(key: String) -> ActivityEntity? {
+        let itemsFetch: NSFetchRequest<ActivityEntity> = ActivityEntity.fetchRequest()
+        itemsFetch.predicate = NSPredicate(format: "key ==%@", key)
+        do {
+            return try managedContext.fetch(itemsFetch).first
+        } catch let error as NSError {
+            print("Fetch error: \(error) description: \(error.userInfo)")
+            return nil
         }
     }
 }

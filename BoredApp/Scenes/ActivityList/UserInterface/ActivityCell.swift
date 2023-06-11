@@ -7,11 +7,15 @@
 
 import UIKit
 
-
+protocol ActivityCellDelegate: AnyObject {
+    
+    func showAlert(_ alert: UIAlertController)
+}
 
 final class ActivityCell: UICollectionViewCell {
 
     static let identifier: String = String(describing: ActivityCell.self)
+    
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var difficultyLabel: UILabel!
     @IBOutlet weak var difficultyLoadingView: UIView!
@@ -26,10 +30,11 @@ final class ActivityCell: UICollectionViewCell {
     @IBOutlet weak var participantLoadingView: UIView!
     @IBOutlet weak var activityType: UILabel!
 
-    let interactor = ActivityInteractor()
-    var activity: ActivityCodable?
+    weak var delegate: ActivityCellDelegate?
     
-    lazy var shimmeringViews: [UIView] = [
+    private let interactor = ActivityInteractor()
+    private var activity: ActivityCodable?
+    private lazy var shimmeringViews: [UIView] = [
         nameContainerView,
         typeLoadingView,
         difficultyLoadingView,
@@ -45,10 +50,8 @@ final class ActivityCell: UICollectionViewCell {
         containerView.layer.cornerRadius = 12
         containerView.backgroundColor = .white
         
-        
-        let image = UIImage(named: "start")?.withTintColor(.white, renderingMode: .alwaysOriginal)
-        actionButton.setImage(image, for: .normal)
-        actionButton.setImage(nil, for: .highlighted)
+                
+        actionButton.transparentStyle(title: "Start Now!", with: 12)
     }
     
     override func layoutSubviews() {
@@ -75,8 +78,41 @@ final class ActivityCell: UICollectionViewCell {
     
     @IBAction func didTapButton(_ sender: Any) {
         guard let activity = self.activity else { return }
-        actionButton.setTitle("Complete Activity", for: .normal)
-        interactor.start(activity: activity)
+                
+        actionButton.transparentStyle(title: "Finish", with: 12)
+        
+        guard interactor.state != nil else {
+            interactor.start(activity: activity)
+            return
+        }
+        
+        let alert = UIAlertController(title: nil, message: "Did you finish?", preferredStyle: .actionSheet)
+
+        let actionFinished = UIAlertAction(title: "Yes! I finished", style: .default) { _ in
+            self.interactor.finish()
+            self.actionButton.finishedStyle(title: self.interactor.endTime)
+            self.nameLabel.strikethroughText(activity.activity, size: 17)
+            self.actionButton.layer.removeAllAnimations()
+            self.setNeedsDisplay()
+            self.setNeedsLayout()
+        }
+        
+        let actionAbort = UIAlertAction(title: "No! I'm bored", style: .destructive) { _ in
+            self.interactor.abort()
+            self.actionButton.finishedStyle(title: self.interactor.endTime)
+            self.nameLabel.strikethroughText(activity.activity, size: 17)
+            self.actionButton.layer.removeAllAnimations()
+            self.setNeedsDisplay()
+            self.setNeedsLayout()
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(actionFinished)
+        alert.addAction(actionAbort)
+        alert.addAction(cancelAction)
+        delegate?.showAlert(alert)
     }
     
     func stopLoading() {
@@ -123,5 +159,28 @@ final class ActivityCell: UICollectionViewCell {
                 self.activityType.textColor = color
             })
         }
+        
+        blinkActionButton()
+        interactor.load(activity: activity)
+
+        if interactor.state == .pending {
+            actionButton.transparentStyle(title: "Finish", with: 12)
+        } else if interactor.state == .finished || interactor.state == .aborted {
+            actionButton.layer.removeAllAnimations()
+            actionButton.finishedStyle(title: interactor.endTime)
+            nameLabel.strikethroughText(activity.activity, size: 17)
+        }
+    }
+    
+    func blinkActionButton() {
+        actionButton.alpha = 0.2
+        UIView.animate(
+            withDuration: 1,
+            delay: 0.0,
+            options: [.curveLinear, .repeat, .autoreverse, .allowUserInteraction],
+            animations: {
+                self.actionButton.alpha = 1.0
+            }
+        )
     }
 }

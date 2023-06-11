@@ -21,7 +21,7 @@ final class ActivityListInteractor {
     private var activities: [ActivityCodable] = []
     
     func fetch(filters: [String] = [], _ completion: (([ActivityCodable]) -> ())?) {
-        activities = localStorage.getUserActivities()
+        activities = []//localStorage.getUserActivities()
         
         guard activities.count == 0 else {
             completion?(activities)

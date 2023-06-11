@@ -3,10 +3,12 @@
     <entity name="ActivityEntity" representedClassName="ActivityEntity" syncable="YES">
         <attribute name="accessibility" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="activity" attributeType="String"/>
+        <attribute name="dateEnd" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dateStart" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="key" attributeType="String"/>
         <attribute name="participants" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="state" attributeType="String" defaultValueString=""/>
         <attribute name="type" attributeType="String"/>
     </entity>
 </model>
