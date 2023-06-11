@@ -29,11 +29,8 @@ final class ActivityListViewController: UIViewController {
         
         view.backgroundColor = Colors.backGroundColor
         collectionView.backgroundColor = .clear
-        collectionView.reloadData()
-        interactor.fetch() { [weak self] actitivies in
-            self?.activities = actitivies
-            self?.collectionView.reloadData()
-        }
+        
+        fetch(userActivities: true, filters: [])
     }
         
     func registerCells() {
@@ -63,23 +60,45 @@ extension ActivityListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: FilterActivityHeaderView.identifier, for: indexPath) as! FilterActivityHeaderView
-        header.didTap = { [weak self] in
-            let viewController = FilterViewController(items: ActivityType.allCases.map({ $0.rawValue }), selectedIndex: -1)
-            viewController.didSelectItem = { [weak self] selected in
-                self?.activities = []
-                self?.collectionView.reloadData()
-                self?.interactor.fetch(filters: selected) { [weak self] activities in
-                    self?.activities = activities
-                    self?.collectionView.reloadData()
-                }
-            }
-            self?.present(viewController, animated: true)
+        
+        header.didTapFilterActivity = { [weak self] in
+            self?.didTapFilter()
         }
+        
+        header.didTapMyActivities = { [weak self] isSelected in
+            self?.didTapMyActivities(isSelected)
+        }        
+        
         return header
     }
         
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return isCollectionLoading ? 4 : activities.count
+    }
+}
+
+extension ActivityListViewController {
+
+    private func didTapFilter() {
+        let viewController = FilterViewController(items: ActivityType.allCases.map({ $0.rawValue }), selectedIndex: -1)
+
+        viewController.didSelectItem = { [weak self] selected in
+            self?.fetch(userActivities: true, filters: selected)
+        }
+        present(viewController, animated: true)
+    }
+    
+    private func didTapMyActivities(_ isSelected: Bool) {
+        fetch(userActivities: isSelected, filters: [])
+    }
+    
+    func fetch(userActivities: Bool, filters: [String]) {
+        activities = []
+        collectionView.reloadData()
+        interactor.fetch(filters: filters, userActivities: userActivities) { [weak self] activities in
+            self?.activities = activities
+            self?.collectionView.reloadData()
+        }
     }
 }
 

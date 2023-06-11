@@ -40,6 +40,35 @@
                         <constraint firstAttribute="height" constant="30" id="qa8-ai-5QE"/>
                         <constraint firstItem="mtg-Fj-dkf" firstAttribute="centerY" secondItem="qyu-aY-YHO" secondAttribute="centerY" id="ya9-2g-UM1"/>
                     </constraints>
+                </view>
+                <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="swi-HD-nZE">
+                    <rect key="frame" x="122.66666666666669" y="16" width="140" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Activities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0V-Zm-07k">
+                            <rect key="frame" x="15.999999999999986" y="6" width="92" height="18"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-down" translatesAutoresizingMaskIntoConstraints="NO" id="W3c-BJ-aY2">
+                            <rect key="frame" x="113.99999999999999" y="7" width="16.000000000000014" height="16"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="16" id="J8o-90-uIG"/>
+                                <constraint firstAttribute="width" constant="16" id="xeD-am-fNh"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Z0V-Zm-07k" firstAttribute="leading" secondItem="swi-HD-nZE" secondAttribute="leading" constant="16" id="3tU-Xq-3I1"/>
+                        <constraint firstItem="Z0V-Zm-07k" firstAttribute="centerY" secondItem="swi-HD-nZE" secondAttribute="centerY" id="422-Ap-eg3"/>
+                        <constraint firstAttribute="width" constant="140" id="Bbn-te-tEe"/>
+                        <constraint firstAttribute="height" constant="30" id="Mzf-R5-KjX"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="ezy-aQ-hoU"/>
+                        <constraint firstItem="W3c-BJ-aY2" firstAttribute="leading" secondItem="Z0V-Zm-07k" secondAttribute="trailing" constant="6" id="jEM-pE-AB3"/>
+                        <constraint firstItem="W3c-BJ-aY2" firstAttribute="centerY" secondItem="Z0V-Zm-07k" secondAttribute="centerY" id="mFO-JG-R0Y"/>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -47,13 +76,18 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
             <constraints>
+                <constraint firstItem="swi-HD-nZE" firstAttribute="leading" secondItem="qyu-aY-YHO" secondAttribute="trailing" constant="16" id="F2H-j5-WJD"/>
                 <constraint firstItem="qyu-aY-YHO" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="16" id="F6B-LQ-MRt"/>
+                <constraint firstItem="swi-HD-nZE" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="16" id="uHe-Po-AuO"/>
                 <constraint firstItem="qyu-aY-YHO" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="16" id="wn0-4j-baN"/>
             </constraints>
             <connections>
-                <outlet property="filterIconImageView" destination="cNq-76-pV2" id="PD4-le-QhK"/>
-                <outlet property="typeContainerView" destination="qyu-aY-YHO" id="ZEc-dO-ehg"/>
-                <outlet property="typeFilterLabel" destination="mtg-Fj-dkf" id="tWz-xS-gcs"/>
+                <outletCollection property="icons" destination="cNq-76-pV2" collectionClass="NSMutableArray" id="nTg-Fz-FgA"/>
+                <outletCollection property="icons" destination="W3c-BJ-aY2" collectionClass="NSMutableArray" id="joo-gS-rCJ"/>
+                <outletCollection property="labels" destination="mtg-Fj-dkf" collectionClass="NSMutableArray" id="FAe-yr-zXH"/>
+                <outletCollection property="labels" destination="Z0V-Zm-07k" collectionClass="NSMutableArray" id="O7y-6Q-RvM"/>
+                <outletCollection property="views" destination="qyu-aY-YHO" collectionClass="NSMutableArray" id="eTV-qb-TcG"/>
+                <outletCollection property="views" destination="swi-HD-nZE" collectionClass="NSMutableArray" id="hP7-Op-XRR"/>
             </connections>
             <point key="canvasLocation" x="200" y="20.774647887323944"/>
         </collectionReusableView>

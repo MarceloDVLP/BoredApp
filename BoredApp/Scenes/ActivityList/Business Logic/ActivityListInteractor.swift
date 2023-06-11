@@ -20,21 +20,25 @@ final class ActivityListInteractor {
     
     private var activities: [ActivityModel] = []
     
-    func fetch(filters: [String] = [], _ completion: (([ActivityModel]) -> ())?) {
-        activities = []//
+    func fetch(filters: [String] = [],
+               userActivities: Bool = false,
+               _ completion: (([ActivityModel]) -> ())?) {
         
-        localStorage.getUserActivities() { [weak self] result in
-            guard let self = self else { return }
-            
-            guard result.count == 0 else {
-                self.activities = result
-
+        activities = []
+        
+        guard userActivities else {
+            self.fetchFromRemote(filters: filters) { result in
                 DispatchQueue.main.async {
                     completion?(result)
                 }
-                return
             }
-
+            return
+        }
+        
+        localStorage.getUserActivities() { [weak self] result in
+            guard let self = self else { return }
+            self.activities = result
+            
             self.fetchFromRemote(filters: filters) { result in
                 DispatchQueue.main.async {
                     completion?(result)
