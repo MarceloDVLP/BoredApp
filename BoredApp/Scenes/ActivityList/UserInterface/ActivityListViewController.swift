@@ -30,7 +30,7 @@ final class ActivityListViewController: UIViewController {
         view.backgroundColor = Colors.backGroundColor
         collectionView.backgroundColor = .clear
         
-        fetch(userActivities: true, filters: [])
+        fetch(userActivities: false, filters: [])
     }
         
     func registerCells() {

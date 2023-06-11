@@ -46,7 +46,7 @@ final class ActivityCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 12
         contentView.layer.masksToBounds = true
         containerView.layer.cornerRadius = 12
-        containerView.backgroundColor = .white
+        containerView.backgroundColor = .lightGray
         
                 
         actionButton.transparentStyle(title: "Start Now!", with: 12)
@@ -71,12 +71,15 @@ final class ActivityCell: UICollectionViewCell {
         priceLabel.text = nil
         difficultyLabel.text = nil
         participantLabel.text = nil
-        containerView.backgroundColor = .white
+        actionButton.isHidden = true
+        containerView.backgroundColor = .darkGray.withAlphaComponent(0.7)
     }
     
     func update(activity: ActivityModel) {
         actionButton.finishedStyle(title: activity.endTime)
         actionButton.layer.removeAllAnimations()
+        actionButton.isHidden = false
+        actionButton.isUserInteractionEnabled = false
         nameLabel.strikethroughText(activity.activity, size: 17)
         setNeedsDisplay()
         setNeedsLayout()
@@ -101,7 +104,6 @@ final class ActivityCell: UICollectionViewCell {
     
     func configure(_ activity: ActivityModel) {
         stopLoading()
-        nameLabel.text = activity.activity
         activityType.text = "\(activity.type) activity"
       
         if activity.price <= 0.3 {
@@ -130,15 +132,24 @@ final class ActivityCell: UICollectionViewCell {
                 self.activityType.textColor = color
             })
         }
-        
-        blinkActionButton()
+        actionButton.isHidden = false
+        setupName(with: activity.activity)
+        actionButton.isUserInteractionEnabled = true
+
         if activity.state == .pending {
             actionButton.transparentStyle(title: "Finish", with: 12)
+            blinkActionButton()
         } else if activity.state == .finished || activity.state == .aborted {
             actionButton.layer.removeAllAnimations()
             actionButton.finishedStyle(title: activity.endTime)
+            actionButton.isUserInteractionEnabled = false
             nameLabel.strikethroughText(activity.activity, size: 17)
         }
+    }
+    
+    private func setupName(with title: String) {
+        nameLabel.attributedText = nil
+        nameLabel.text = title
     }
     
     func blinkActionButton() {

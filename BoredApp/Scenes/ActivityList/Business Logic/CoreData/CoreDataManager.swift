@@ -74,7 +74,9 @@ class CoreDataManager {
                         participants: Int(result.participants),
                         price: result.price,
                         key: result.key,
-                        state: ActivityState(rawValue: result.state)
+                        state: ActivityState(rawValue: result.state),
+                        dateStart: result.dateStart,
+                        dateEnd: result.dateEnd
                     )
                 })
                 completion?(activities)
