@@ -28,43 +28,64 @@ class CoreDataManager {
         }
     }
     
-    func save(_ activity: ActivityCodable, state: ActivityState) -> ActivityEntity {
-        let activityEntity = ActivityEntity(context: managedContext)
-        activityEntity.accessibility = activity.accessibility
-        activityEntity.activity = activity.activity
-        activityEntity.key = activity.key
-        activityEntity.participants = Int32(activity.participants)
-        activityEntity.type = activity.type
-        activityEntity.price = activity.price
-        activityEntity.dateStart = Date.now
-        activityEntity.state = state.rawValue
-        saveContext()
-        return activityEntity
-    }
-    
-    func getUserActivities() -> [ActivityCodable] {
-        let itemsFetch: NSFetchRequest<ActivityEntity> = ActivityEntity.fetchRequest()
-        let sortByDate = NSSortDescriptor(key: #keyPath(ActivityEntity.dateStart), ascending: false)
-        itemsFetch.sortDescriptors = [sortByDate]
-        do {
-            let results = try managedContext.fetch(itemsFetch)
-            return results.map({ result in
-                ActivityCodable(
-                    activity: result.activity,
-                    accessibility: result.accessibility,
-                    type: result.type,
-                    participants: Int(result.participants),
-                    price: result.price,
-                    key: result.key,
-                    link: nil)
-            })
-        } catch let error as NSError {
-            print("Fetch error: \(error) description: \(error.userInfo)")
-            return []
+    func save(_ activity: ActivityModel, state: ActivityState, date: Date) {
+        
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else { return }
+            let activityEntity = ActivityEntity(context: self.managedContext)
+            activityEntity.accessibility = activity.accessibility
+            activityEntity.activity = activity.activity
+            activityEntity.key = activity.key
+            activityEntity.participants = Int32(activity.participants)
+            activityEntity.type = activity.type
+            activityEntity.price = activity.price
+            activityEntity.dateStart = date
+            activityEntity.state = state.rawValue
+
+            self.saveContext()
         }
     }
     
-    func get(key: String) -> ActivityEntity? {
+    func update(_ activity: ActivityModel, state: ActivityState, date: Date) {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else { return }
+
+            guard let entity = self.get(key: activity.key) else { return }
+            entity.state = state.rawValue
+            entity.dateEnd = date
+            self.saveContext()
+        }
+    }
+    
+    func getUserActivities(_ completion: (([ActivityModel]) -> ())?) {
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let self = self else { return }
+
+            let itemsFetch: NSFetchRequest<ActivityEntity> = ActivityEntity.fetchRequest()
+            let sortByDate = NSSortDescriptor(key: #keyPath(ActivityEntity.dateStart), ascending: false)
+            itemsFetch.sortDescriptors = [sortByDate]
+            do {
+                let results = try self.managedContext.fetch(itemsFetch)
+                let activities = results.map({ result in
+                    ActivityModel(
+                        activity: result.activity,
+                        accessibility: result.accessibility,
+                        type: result.type,
+                        participants: Int(result.participants),
+                        price: result.price,
+                        key: result.key,
+                        state: ActivityState(rawValue: result.state)
+                    )
+                })
+                completion?(activities)
+            } catch let error as NSError {
+                print("Fetch error: \(error) description: \(error.userInfo)")
+                completion?([])
+            }
+        }
+    }
+    
+    private func get(key: String) -> ActivityEntity? {
         let itemsFetch: NSFetchRequest<ActivityEntity> = ActivityEntity.fetchRequest()
         itemsFetch.predicate = NSPredicate(format: "key ==%@", key)
         do {

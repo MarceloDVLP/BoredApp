@@ -9,7 +9,7 @@ import UIKit
 
 protocol ActivityCellDelegate: AnyObject {
     
-    func showAlert(_ alert: UIAlertController)
+    func userDidTapButton(at cell: ActivityCell)
 }
 
 final class ActivityCell: UICollectionViewCell {
@@ -32,8 +32,6 @@ final class ActivityCell: UICollectionViewCell {
 
     weak var delegate: ActivityCellDelegate?
     
-    private let interactor = ActivityInteractor()
-    private var activity: ActivityCodable?
     private lazy var shimmeringViews: [UIView] = [
         nameContainerView,
         typeLoadingView,
@@ -76,43 +74,17 @@ final class ActivityCell: UICollectionViewCell {
         containerView.backgroundColor = .white
     }
     
+    func update(activity: ActivityModel) {
+        actionButton.finishedStyle(title: activity.endTime)
+        actionButton.layer.removeAllAnimations()
+        nameLabel.strikethroughText(activity.activity, size: 17)
+        setNeedsDisplay()
+        setNeedsLayout()
+    }
+    
     @IBAction func didTapButton(_ sender: Any) {
-        guard let activity = self.activity else { return }
-                
         actionButton.transparentStyle(title: "Finish", with: 12)
-        
-        guard interactor.state != nil else {
-            interactor.start(activity: activity)
-            return
-        }
-        
-        let alert = UIAlertController(title: nil, message: "Did you finish?", preferredStyle: .actionSheet)
-
-        let actionFinished = UIAlertAction(title: "Yes! I finished", style: .default) { _ in
-            self.interactor.finish()
-            self.actionButton.finishedStyle(title: self.interactor.endTime)
-            self.nameLabel.strikethroughText(activity.activity, size: 17)
-            self.actionButton.layer.removeAllAnimations()
-            self.setNeedsDisplay()
-            self.setNeedsLayout()
-        }
-        
-        let actionAbort = UIAlertAction(title: "No! I'm bored", style: .destructive) { _ in
-            self.interactor.abort()
-            self.actionButton.finishedStyle(title: self.interactor.endTime)
-            self.nameLabel.strikethroughText(activity.activity, size: 17)
-            self.actionButton.layer.removeAllAnimations()
-            self.setNeedsDisplay()
-            self.setNeedsLayout()
-            
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        
-        alert.addAction(actionFinished)
-        alert.addAction(actionAbort)
-        alert.addAction(cancelAction)
-        delegate?.showAlert(alert)
+        delegate?.userDidTapButton(at: self)
     }
     
     func stopLoading() {
@@ -127,8 +99,7 @@ final class ActivityCell: UICollectionViewCell {
         })
     }
     
-    func configure(_ activity: ActivityCodable) {
-        self.activity = activity
+    func configure(_ activity: ActivityModel) {
         stopLoading()
         nameLabel.text = activity.activity
         activityType.text = "\(activity.type) activity"
@@ -161,13 +132,11 @@ final class ActivityCell: UICollectionViewCell {
         }
         
         blinkActionButton()
-        interactor.load(activity: activity)
-
-        if interactor.state == .pending {
+        if activity.state == .pending {
             actionButton.transparentStyle(title: "Finish", with: 12)
-        } else if interactor.state == .finished || interactor.state == .aborted {
+        } else if activity.state == .finished || activity.state == .aborted {
             actionButton.layer.removeAllAnimations()
-            actionButton.finishedStyle(title: interactor.endTime)
+            actionButton.finishedStyle(title: activity.endTime)
             nameLabel.strikethroughText(activity.activity, size: 17)
         }
     }

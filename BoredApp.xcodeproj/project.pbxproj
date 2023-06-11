@@ -21,7 +21,6 @@
 		C73DC1722A33703F00F2659B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73DC1712A33703F00F2659B /* Assets.xcassets */; };
 		C73DC1752A33703F00F2659B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73DC1732A33703F00F2659B /* LaunchScreen.storyboard */; };
 		C74862C32A3519B900BD0EC5 /* FilterActivityHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74862C22A3519B900BD0EC5 /* FilterActivityHeaderView.xib */; };
-		C74862C52A351A6300BD0EC5 /* ActivityInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74862C42A351A6300BD0EC5 /* ActivityInteractor.swift */; };
 		C75C5A4B2A3373CB0090766E /* RemoteActivityLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */; };
 		C75C5A532A3377FE0090766E /* RemoteActivityLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A522A3377FE0090766E /* RemoteActivityLoaderTests.swift */; };
 		C75C5A5D2A337C800090766E /* ActivityCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75C5A5B2A337C520090766E /* ActivityCodable.swift */; };
@@ -60,7 +59,6 @@
 		C73DC1742A33703F00F2659B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C73DC1762A33703F00F2659B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C74862C22A3519B900BD0EC5 /* FilterActivityHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterActivityHeaderView.xib; sourceTree = "<group>"; };
-		C74862C42A351A6300BD0EC5 /* ActivityInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityInteractor.swift; sourceTree = "<group>"; };
 		C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteActivityLoader.swift; sourceTree = "<group>"; };
 		C75C5A502A3377FE0090766E /* BoredAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoredAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C75C5A522A3377FE0090766E /* RemoteActivityLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteActivityLoaderTests.swift; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 				C73D37802A3511FE006C1E82 /* CoreData */,
 				C75C5A492A3373AE0090766E /* RemoteLoader */,
 				C70B0C772A33AC6B0058DAE3 /* ActivityListInteractor.swift */,
-				C74862C42A351A6300BD0EC5 /* ActivityInteractor.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -364,7 +361,6 @@
 				C75C5A5D2A337C800090766E /* ActivityCodable.swift in Sources */,
 				C75C5A632A33839D0090766E /* ActivityCell.swift in Sources */,
 				C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */,
-				C74862C52A351A6300BD0EC5 /* ActivityInteractor.swift in Sources */,
 				C73D378F2A3513C4006C1E82 /* ActivityEntity+CoreDataClass.swift in Sources */,
 				C73DC16B2A33703E00F2659B /* SceneDelegate.swift in Sources */,
 			);

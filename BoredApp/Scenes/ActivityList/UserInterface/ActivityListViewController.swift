@@ -15,7 +15,7 @@ final class ActivityListViewController: UIViewController {
         return ActivityListInteractor()
     }()
     
-    var activities: [ActivityCodable] = []
+    var activities: [ActivityModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,9 +121,45 @@ extension ActivityListViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension ActivityListViewController: ActivityCellDelegate {
+
+    func userDidTapButton(at cell: ActivityCell) {
+        guard let indexPath = collectionView.indexPath(for: cell) else { return }
+        
+        if interactor.isActivityStarted(at: indexPath.item) {
+            showAlert(for: indexPath, cell: cell)
+        } else {
+            interactor.start(at: indexPath.item)
+        }
+    }
     
-    func showAlert(_ alert: UIAlertController) {
+    func showAlert(for indexPath: IndexPath, cell: ActivityCell) {
+        
+        let alert = UIAlertController(title: nil, message: "Did you finish?", preferredStyle: .actionSheet)
+
+        let actionFinished = UIAlertAction(title: "Yes! I finished", style: .default) { _ in
+            self.setActivityState(state: .finished,
+                             at: indexPath.item,
+                             cell)
+        }
+        
+        let actionAbort = UIAlertAction(title: "No! I'm bored", style: .destructive) { _ in
+            self.setActivityState(state: .aborted,
+                             at: indexPath.item,
+                             cell)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(actionFinished)
+        alert.addAction(actionAbort)
+        alert.addAction(cancelAction)
+        
         present(alert, animated: true)
+    }
+    
+    func setActivityState(state: ActivityState, at index: Int, _ cell: ActivityCell) {
+        interactor.setState(state: state, for: index)
+        cell.update(activity: interactor.activity(for: index))
     }
 }
 
