@@ -20,11 +20,13 @@ final class RemoteActivityLoader {
         self.clientHTTP = clientHTTP
     }
     
-    func fetch(_ filter: [String] = []) async throws -> ActivityCodable {
-        var urlComponents = URLComponents(string: "http://www.boredapi.com/api/activity/")!
-        if filter.count > 0 {
-            urlComponents.queryItems = [URLQueryItem(name: "type", value: filter[0])]
+    func fetch(_ filter: String? = nil) async throws -> ActivityCodable {
+        let urlComponents = URLComponents(string: "http://www.boredapi.com/api/activity/")!
+        
+        if let filter {
+            urlComponents.queryItems = [URLQueryItem(name: "type", value: filter)]
         }
+        
         let data = try await clientHTTP.fetch(urlComponents.url!)
         return try decode(data)
     }

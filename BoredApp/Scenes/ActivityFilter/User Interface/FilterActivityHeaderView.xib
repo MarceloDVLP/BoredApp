@@ -69,9 +69,6 @@
                         <constraint firstItem="W3c-BJ-aY2" firstAttribute="leading" secondItem="Z0V-Zm-07k" secondAttribute="trailing" constant="6" id="jEM-pE-AB3"/>
                         <constraint firstItem="W3c-BJ-aY2" firstAttribute="centerY" secondItem="Z0V-Zm-07k" secondAttribute="centerY" id="mFO-JG-R0Y"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>

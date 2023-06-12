@@ -186,17 +186,6 @@
                             <constraint firstAttribute="trailing" secondItem="ogd-wQ-HNO" secondAttribute="trailing" constant="16" id="rRe-Bp-iaJ"/>
                             <constraint firstAttribute="bottom" secondItem="EEI-Fh-n0i" secondAttribute="bottom" constant="16" id="xOu-Oa-0EN"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="8"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                <integer key="value" value="1"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>

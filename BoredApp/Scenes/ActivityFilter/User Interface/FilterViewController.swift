@@ -43,7 +43,6 @@ final class FilterViewController: UIViewController {
     }
     
     private func setupBlurBackGround() {
-        
         view.backgroundColor = .clear
         let blurEffect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: blurEffect)

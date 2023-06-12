@@ -25,15 +25,8 @@ final class FilterCell: UICollectionViewCell {
     }
     
     func select(_ isSelected: Bool) {
-        UIView.animate(withDuration: 1, animations: {
-            if isSelected {
-                self.seasonLabel.font = UIFont.boldSystemFont(ofSize: 20)
-                self.seasonLabel.textColor = Colors.mediumTitleColor
-            } else {
-                self.seasonLabel.font = UIFont.systemFont(ofSize: 17)
-                self.seasonLabel.textColor = .lightGray
-            }
-        })
+        self.seasonLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        self.seasonLabel.textColor = Colors.mediumTitleColor        
     }
     
     required init?(coder: NSCoder) {

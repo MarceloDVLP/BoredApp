@@ -9,7 +9,15 @@ import UIKit
 
 final class ActivityListViewController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.alwaysBounceVertical = true
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        return collectionView
+    }()
 
     private lazy var interactor: ActivityListInteractor = {
         return ActivityListInteractor()
@@ -17,8 +25,9 @@ final class ActivityListViewController: UIViewController {
     
     var activities: [ActivityModel] = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func loadView() {
+        super.loadView()
+        setupCollectionView()
         registerCells()
     }
     
@@ -42,6 +51,14 @@ final class ActivityListViewController: UIViewController {
         collectionView.register(filterNib,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: FilterActivityHeaderView.identifier)
+    }
+    
+    func setupCollectionView() {
+        view.constrainSubView(view: collectionView,
+                                        top: 0,
+                                        bottom: 0,
+                                        left: 0,
+                                        right: 0)
     }
 }
 
