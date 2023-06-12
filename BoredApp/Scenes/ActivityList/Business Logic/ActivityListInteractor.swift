@@ -9,58 +9,65 @@ import Foundation
 
 final class ActivityListInteractor {
 
-    private lazy var remoteLoader: RemoteActivityLoader = {
-        let clientHTTP = ClientHTTP(session: URLSession.shared)
-        return RemoteActivityLoader(clientHTTP: clientHTTP)
-    }()
-
-    private lazy var localStorage: CoreDataManager = {
-        return AppDelegate.shared.coreDataManager
-    }()
+    private var remoteWorker: RemoteActivityWorker
+    private var localWorker: CoreDataWorker
+    private var presenter: ActivityListPresenter
+    
+    init(remoteWorker: RemoteActivityWorker, localWorker: CoreDataWorker, presenter: ActivityListPresenter) {
+        self.remoteWorker = remoteWorker
+        self.localWorker = localWorker
+        self.presenter = presenter
+    }
     
     private var activities: [ActivityModel] = []
     
-    func fetch(filters: [String] = [],
-               userActivities: Bool = false,
-               _ completion: (([ActivityModel]) -> ())?) {
+    func fetch(activityType: String?,
+               userActivities: Bool = false) {
         
         activities = []
         
         guard userActivities else {
-            self.fetchFromRemote(filters: filters) { result in
-                DispatchQueue.main.async {
-                    completion?(result)
-                }
+            self.fetchFromRemote(activityType: activityType) { result in
+                self.presenter.present(activities: result)
             }
             return
         }
         
-        localStorage.getUserActivities() { [weak self] result in
+        localWorker.getUserActivities() { [weak self] result in
             guard let self = self else { return }
             self.activities = result
             
-            self.fetchFromRemote(filters: filters) { result in
+            self.fetchFromRemote(activityType: activityType) { result in
                 DispatchQueue.main.async {
-                    completion?(result)
+                    self.presenter.present(activities: result)
                 }
             }
         }
     }
     
-    func fetchFromRemote(filters: [String] = [], _ completion: (([ActivityModel]) -> ())?) {
+    func fetchFromRemote(activityType: String?, _ completion: (([ActivityModel]) -> ())?) {
         let group = DispatchGroup()
-
+        
         for _ in 0...10 {
             group.enter()
+            
             Task {
-                let activity = try await remoteLoader.fetch(filters)
-                activities.append(ActivityModel(activityCodable: activity))
+                let result = try await remoteWorker.fetch(activityType)
+                
+                switch (result) {
+                case .success(let activity):
+                    activities.append(ActivityModel(activityCodable: activity))
+                case .failure:
+                    break
+                }
+                
                 group.leave()
             }
         }
         
         group.notify(queue: DispatchQueue.main) { [weak self] in
-            completion?(self?.activities ?? [])
+            guard let self = self else { return }
+            completion?(self.activities)
         }
     }
     
@@ -71,7 +78,7 @@ final class ActivityListInteractor {
             let dateStart = Date.now
             activity.dateStart = dateStart
             activity.state = .pending
-            localStorage.save(activity, state: .pending, date: dateStart)
+            localWorker.save(activity, state: .pending, date: dateStart)
         }
     }
     
@@ -85,7 +92,7 @@ final class ActivityListInteractor {
         activity.state = state
         let dateEnd = Date.now
         activity.dateEnd = dateEnd
-        localStorage.update(activity, state: state, date: dateEnd)
+        localWorker.update(activity, state: state, date: dateEnd)
     }
     
     func activity(for index: Int) -> ActivityModel {

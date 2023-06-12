@@ -1,12 +1,8 @@
 import CoreData
 
-final class CoreDataManager {
+final class CoreDataWorker {
     
-    private let modelName: String
-
-    init(modelName: String) {
-        self.modelName = modelName
-    }
+    private let modelName: String = "BoredAppDataModel"
 
     private lazy var storeContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: self.modelName)

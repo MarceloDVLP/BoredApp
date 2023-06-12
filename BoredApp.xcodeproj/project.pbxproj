@@ -11,7 +11,7 @@
 		C73D377D2A34BD9E006C1E82 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D377C2A34BD9E006C1E82 /* FilterViewController.swift */; };
 		C73D377F2A34F935006C1E82 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D377E2A34F935006C1E82 /* FilterCell.swift */; };
 		C73D37832A351215006C1E82 /* BoredAppDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C73D37812A351215006C1E82 /* BoredAppDataModel.xcdatamodeld */; };
-		C73D37852A35122C006C1E82 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D37842A35122C006C1E82 /* CoreDataManager.swift */; };
+		C73D37852A35122C006C1E82 /* CoreDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D37842A35122C006C1E82 /* CoreDataWorker.swift */; };
 		C73D378E2A3513AD006C1E82 /* ActivityEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D378B2A351385006C1E82 /* ActivityEntity+CoreDataProperties.swift */; };
 		C73D378F2A3513C4006C1E82 /* ActivityEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D378A2A351385006C1E82 /* ActivityEntity+CoreDataClass.swift */; };
 		C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73DC1682A33703E00F2659B /* AppDelegate.swift */; };
@@ -30,6 +30,10 @@
 		C7E1BEEF2A34A76200693593 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1BEEE2A34A76200693593 /* UIColor+Helpers.swift */; };
 		C7E1BEF12A34A77900693593 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1BEF02A34A77900693593 /* UIView+Helpers.swift */; };
 		C7E1BEF42A34ABC500693593 /* FilterActivityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1BEF22A34ABC500693593 /* FilterActivityHeaderView.swift */; };
+		C7FE7DF52A37BA210015711F /* ActivityListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE7DF42A37BA210015711F /* ActivityListPresenter.swift */; };
+		C7FE7DFA2A37BB260015711F /* ActivityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE7DF92A37BB260015711F /* ActivityListView.swift */; };
+		C7FE7DFD2A37C7B40015711F /* ActivityListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE7DFC2A37C7B40015711F /* ActivityListRouter.swift */; };
+		C7FE7DFF2A37C8140015711F /* ActivityListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE7DFE2A37C8140015711F /* ActivityListFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +51,7 @@
 		C73D377C2A34BD9E006C1E82 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		C73D377E2A34F935006C1E82 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		C73D37822A351215006C1E82 /* BoredAppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BoredAppDataModel.xcdatamodel; sourceTree = "<group>"; };
-		C73D37842A35122C006C1E82 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C73D37842A35122C006C1E82 /* CoreDataWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataWorker.swift; sourceTree = "<group>"; };
 		C73D378A2A351385006C1E82 /* ActivityEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C73D378B2A351385006C1E82 /* ActivityEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C73DC1652A33703E00F2659B /* BoredApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoredApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +74,10 @@
 		C7E1BEEE2A34A76200693593 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
 		C7E1BEF02A34A77900693593 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		C7E1BEF22A34ABC500693593 /* FilterActivityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterActivityHeaderView.swift; sourceTree = "<group>"; };
+		C7FE7DF42A37BA210015711F /* ActivityListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListPresenter.swift; sourceTree = "<group>"; };
+		C7FE7DF92A37BB260015711F /* ActivityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListView.swift; sourceTree = "<group>"; };
+		C7FE7DFC2A37C7B40015711F /* ActivityListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListRouter.swift; sourceTree = "<group>"; };
+		C7FE7DFE2A37C8140015711F /* ActivityListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,22 +101,19 @@
 		C70B0C762A338B710058DAE3 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
-				C73D37802A3511FE006C1E82 /* CoreDataManager */,
-				C75C5A492A3373AE0090766E /* RemoteLoader */,
 				C70B0C772A33AC6B0058DAE3 /* ActivityListInteractor.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
 		};
-		C73D37802A3511FE006C1E82 /* CoreDataManager */ = {
+		C73D37802A3511FE006C1E82 /* LocalWorker */ = {
 			isa = PBXGroup;
 			children = (
-				C73D378A2A351385006C1E82 /* ActivityEntity+CoreDataClass.swift */,
-				C73D378B2A351385006C1E82 /* ActivityEntity+CoreDataProperties.swift */,
+				C7FE7E012A37C87A0015711F /* Entities */,
 				C73D37812A351215006C1E82 /* BoredAppDataModel.xcdatamodeld */,
-				C73D37842A35122C006C1E82 /* CoreDataManager.swift */,
+				C73D37842A35122C006C1E82 /* CoreDataWorker.swift */,
 			);
-			path = CoreDataManager;
+			path = LocalWorker;
 			sourceTree = "<group>";
 		};
 		C73D37932A351908006C1E82 /* Resources */ = {
@@ -130,7 +135,7 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		C73D37952A35197A006C1E82 /* User Interface */ = {
+		C73D37952A35197A006C1E82 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				C74862C22A3519B900BD0EC5 /* FilterActivityHeaderView.xib */,
@@ -138,14 +143,7 @@
 				C73D377C2A34BD9E006C1E82 /* FilterViewController.swift */,
 				C73D377E2A34F935006C1E82 /* FilterCell.swift */,
 			);
-			path = "User Interface";
-			sourceTree = "<group>";
-		};
-		C73D37962A351983006C1E82 /* Business Logic */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Business Logic";
+			path = View;
 			sourceTree = "<group>";
 		};
 		C73DC15C2A33703E00F2659B = {
@@ -180,8 +178,12 @@
 		C73DC17C2A33722400F2659B /* ActivityList */ = {
 			isa = PBXGroup;
 			children = (
+				C7FE7E002A37C8510015711F /* Worker */,
 				C70B0C762A338B710058DAE3 /* Business Logic */,
-				C75C5A602A3383740090766E /* UserInterface */,
+				C7FE7DFB2A37C7970015711F /* Router */,
+				C7FE7DF12A37B9B40015711F /* Presenter */,
+				C75C5A602A3383740090766E /* View */,
+				C7FE7DFE2A37C8140015711F /* ActivityListFactory.swift */,
 			);
 			path = ActivityList;
 			sourceTree = "<group>";
@@ -204,14 +206,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		C75C5A492A3373AE0090766E /* RemoteLoader */ = {
+		C75C5A492A3373AE0090766E /* RemoteWorker */ = {
 			isa = PBXGroup;
 			children = (
 				C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */,
-				C75C5A5B2A337C520090766E /* ActivityCodable.swift */,
-				C75C5A5E2A337E930090766E /* ClientHTTP.swift */,
+				C7FE7DF02A3771700015711F /* ClientHTTP */,
+				C7FE7DEF2A3770D30015711F /* Codable */,
 			);
-			path = RemoteLoader;
+			path = RemoteWorker;
 			sourceTree = "<group>";
 		};
 		C75C5A512A3377FE0090766E /* BoredAppTests */ = {
@@ -223,14 +225,14 @@
 			path = BoredAppTests;
 			sourceTree = "<group>";
 		};
-		C75C5A602A3383740090766E /* UserInterface */ = {
+		C75C5A602A3383740090766E /* View */ = {
 			isa = PBXGroup;
 			children = (
 				C73DC16C2A33703E00F2659B /* ActivityListViewController.swift */,
-				C75C5A612A33839D0090766E /* ActivityCell.swift */,
-				C75C5A622A33839D0090766E /* ActivityCell.xib */,
+				C7FE7DF92A37BB260015711F /* ActivityListView.swift */,
+				C7FE7DF32A37B9E10015711F /* ActivityCell */,
 			);
-			path = UserInterface;
+			path = View;
 			sourceTree = "<group>";
 		};
 		C7E1BEED2A34A74C00693593 /* Extensions */ = {
@@ -245,10 +247,68 @@
 		C7E1BEF62A34BB0B00693593 /* ActivityFilter */ = {
 			isa = PBXGroup;
 			children = (
-				C73D37962A351983006C1E82 /* Business Logic */,
-				C73D37952A35197A006C1E82 /* User Interface */,
+				C73D37952A35197A006C1E82 /* View */,
 			);
 			path = ActivityFilter;
+			sourceTree = "<group>";
+		};
+		C7FE7DEF2A3770D30015711F /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				C75C5A5B2A337C520090766E /* ActivityCodable.swift */,
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
+		C7FE7DF02A3771700015711F /* ClientHTTP */ = {
+			isa = PBXGroup;
+			children = (
+				C75C5A5E2A337E930090766E /* ClientHTTP.swift */,
+			);
+			path = ClientHTTP;
+			sourceTree = "<group>";
+		};
+		C7FE7DF12A37B9B40015711F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C7FE7DF42A37BA210015711F /* ActivityListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C7FE7DF32A37B9E10015711F /* ActivityCell */ = {
+			isa = PBXGroup;
+			children = (
+				C75C5A612A33839D0090766E /* ActivityCell.swift */,
+				C75C5A622A33839D0090766E /* ActivityCell.xib */,
+			);
+			path = ActivityCell;
+			sourceTree = "<group>";
+		};
+		C7FE7DFB2A37C7970015711F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				C7FE7DFC2A37C7B40015711F /* ActivityListRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		C7FE7E002A37C8510015711F /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				C73D37802A3511FE006C1E82 /* LocalWorker */,
+				C75C5A492A3373AE0090766E /* RemoteWorker */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		C7FE7E012A37C87A0015711F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C73D378A2A351385006C1E82 /* ActivityEntity+CoreDataClass.swift */,
+				C73D378B2A351385006C1E82 /* ActivityEntity+CoreDataProperties.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -354,10 +414,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7E1BEF12A34A77900693593 /* UIView+Helpers.swift in Sources */,
+				C7FE7DFA2A37BB260015711F /* ActivityListView.swift in Sources */,
 				C74862C82A3669CA00BD0EC5 /* Colors.swift in Sources */,
 				C75C5A5F2A337E930090766E /* ClientHTTP.swift in Sources */,
 				C73DC16D2A33703E00F2659B /* ActivityListViewController.swift in Sources */,
-				C73D37852A35122C006C1E82 /* CoreDataManager.swift in Sources */,
+				C73D37852A35122C006C1E82 /* CoreDataWorker.swift in Sources */,
 				C75C5A4B2A3373CB0090766E /* RemoteActivityLoader.swift in Sources */,
 				C73D37832A351215006C1E82 /* BoredAppDataModel.xcdatamodeld in Sources */,
 				C70B0C782A33AC6B0058DAE3 /* ActivityListInteractor.swift in Sources */,
@@ -368,7 +429,10 @@
 				C7E1BEF42A34ABC500693593 /* FilterActivityHeaderView.swift in Sources */,
 				C75C5A5D2A337C800090766E /* ActivityCodable.swift in Sources */,
 				C75C5A632A33839D0090766E /* ActivityCell.swift in Sources */,
+				C7FE7DFD2A37C7B40015711F /* ActivityListRouter.swift in Sources */,
 				C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */,
+				C7FE7DF52A37BA210015711F /* ActivityListPresenter.swift in Sources */,
+				C7FE7DFF2A37C8140015711F /* ActivityListFactory.swift in Sources */,
 				C73D378F2A3513C4006C1E82 /* ActivityEntity+CoreDataClass.swift in Sources */,
 				C73DC16B2A33703E00F2659B /* SceneDelegate.swift in Sources */,
 			);
