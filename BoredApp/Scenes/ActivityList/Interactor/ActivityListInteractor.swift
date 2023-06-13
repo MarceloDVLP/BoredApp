@@ -32,7 +32,7 @@ final class ActivityListInteractor: ActivityListInteractorProtocol {
     
     func fetch(activityType: String?, userActivities: Bool = false) {
         activities = []
-        
+
         guard userActivities else {
             self.fetchFromRemote(activityType: activityType) { [weak self] result in
                 self?.activities = result
@@ -74,12 +74,19 @@ final class ActivityListInteractor: ActivityListInteractorProtocol {
     private func fetchFromRemote(activityType: String?, _ completion: (([ActivityModel]) -> ())?) {
         let group = DispatchGroup()
         
+        var filter: String?
+        if let type = activityType, let filterType = ActivityType(rawValue: type), filterType == .none {
+            filter = nil
+        } else {
+            filter = activityType
+        }
+        
         for _ in 0...10 {
             group.enter()
             
-            Task {
+            Task { [filter] in
                 do {
-                    let result = try await remoteWorker.fetch(activityType)
+                    let result = try await remoteWorker.fetch(filter)
 
                     switch (result) {
                     case .success(let activity):

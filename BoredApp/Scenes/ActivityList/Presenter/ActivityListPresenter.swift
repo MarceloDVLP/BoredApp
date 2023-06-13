@@ -16,10 +16,10 @@ protocol ActivityListPresenterProtocol {
 
 final class ActivityListPresenter: ActivityListPresenterProtocol {
     
-    weak var viewController: ActivityListViewController?
+    weak var viewController: ActivityListViewControllerProtocol?
     
     func present(_ activity: ActivityModel, index: Int) {
-        let item = map(activity)        
+        let item = map(activity)
         viewController?.show(item, at: index)
     }
     

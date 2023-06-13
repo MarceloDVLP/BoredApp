@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol ActivityListViewDelegate: AnyObject {
+    func didTapFilter()
+    func didTapMyActivities(_ isSelected: Bool)
+    func didTapTryAgain()
+    func userDidTapActivity(_ activity: ActivityItem, _ index: Int, cell: ActivityCell)
+}
+
 final class ActivityListView: UIView {
     
-    weak var delegate: ActivityListViewController?
+    weak var delegate: ActivityListViewDelegate?
     
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -49,6 +56,7 @@ final class ActivityListView: UIView {
                                         bottom: 0,
                                         left: 0,
                                         right: 0)
+        backgroundColor = Colors.backGroundColor
     }
     
     func showLoading() {

@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol ActivityListViewControllerProtocol: AnyObject {
+    func show(_ activities: [ActivityItem])
+    func showError()
+    func show(_ activity: ActivityItem, at index: Int)
+}
+
 final class ActivityListViewController: UIViewController {
 
     private var interactor: ActivityListInteractorProtocol
@@ -32,16 +38,30 @@ final class ActivityListViewController: UIViewController {
         view = activityListView
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        title = "Never Bored!"
-        view.backgroundColor = Colors.backGroundColor
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         fetch()
     }
 }
 
-extension ActivityListViewController {
+extension ActivityListViewController: ActivityListViewControllerProtocol {
+    
+    func show(_ activities: [ActivityItem]) {
+        activityListView.show(activities: activities)
+    }
+    
+    func showError() {
+        activityListView.showError()
+    }
+    
+    func show(_ activity: ActivityItem, at index: Int) {
+        activityListView.show(activity, at: index)
+    }
+}
 
+
+extension ActivityListViewController: ActivityListViewDelegate {
+    
     func didTapFilter() {        
         router.routeToFilter() { [weak self] activityType in
             guard let self = self else { return }
@@ -75,21 +95,26 @@ extension ActivityListViewController {
 extension ActivityListViewController {
         
     func showAlert(for index: Int, cell: ActivityCell) {
-        let alert = UIAlertController(title: nil, message: "Did you finish?", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil,
+                                      message: "Did you finish?",
+                                      preferredStyle: .actionSheet)
 
-        let actionFinished = UIAlertAction(title: "Yes! I finished", style: .default) { _ in
+        let actionFinished = UIAlertAction(title: "Yes! I finished",
+                                           style: .default) { _ in
             self.setActivityState(state: .finished,
                              at: index,
                              cell)
         }
         
-        let actionAbort = UIAlertAction(title: "No! I'm bored", style: .destructive) { _ in
+        let actionAbort = UIAlertAction(title: "No! I'm bored",
+                                        style: .destructive) { _ in
             self.setActivityState(state: .aborted,
                              at: index,
                              cell)
         }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel)
         
         alert.addAction(actionFinished)
         alert.addAction(actionAbort)
@@ -100,20 +125,5 @@ extension ActivityListViewController {
     
     func setActivityState(state: ActivityState, at index: Int, _ cell: ActivityCell) {
         interactor.setState(state: state, for: index)
-    }
-}
-
-extension ActivityListViewController {
-    
-    func show(_ activities: [ActivityItem]) {
-        activityListView.show(activities: activities)
-    }
-    
-    func showError() {
-        activityListView.showError()
-    }
-    
-    func show(_ activity: ActivityItem, at index: Int) {
-        activityListView.show(activity, at: index)
     }
 }

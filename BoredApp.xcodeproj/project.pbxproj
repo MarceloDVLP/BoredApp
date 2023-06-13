@@ -116,12 +116,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C70B0C762A338B710058DAE3 /* Business Logic */ = {
+		C70B0C762A338B710058DAE3 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
 				C70B0C772A33AC6B0058DAE3 /* ActivityListInteractor.swift */,
 			);
-			path = "Business Logic";
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		C73D37802A3511FE006C1E82 /* LocalWorker */ = {
@@ -197,7 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				C7FE7E002A37C8510015711F /* Worker */,
-				C70B0C762A338B710058DAE3 /* Business Logic */,
+				C70B0C762A338B710058DAE3 /* Interactor */,
 				C7FE7DFB2A37C7970015711F /* Router */,
 				C7FE7DF12A37B9B40015711F /* Presenter */,
 				C75C5A602A3383740090766E /* View */,
