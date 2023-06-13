@@ -41,8 +41,8 @@ a ViewController é responsável por exibir a interface do usuário e também tr
 
 
 ## Telas do Projeto
+<img src="readmeimages/bored_app_print1.png" width="390" height="844"/>
 
-![Alt text](readmeimages/bored_app_print1.png?raw=true "Title")
 ![Alt text](readmeimages/bored_app_print2.png?raw=true "Title")
 ![Alt text](readmeimages/bored_app_print3.png?raw=true "Title")
 ![Alt text](readmeimages/bored_app_print4.png?raw=true "Title")
