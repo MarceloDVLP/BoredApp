@@ -38,25 +38,26 @@ o Router é responsável pela navegação entre telas.
 
 a ViewController é responsável por exibir a interface do usuário e também tratar as suas entradas. 
 
-
-
-## Telas do Projeto
-<img src="readmeimages/bored_app_print1.png" width="390" height="844"/>
-
-![Alt text](readmeimages/bored_app_print2.png?raw=true "Title")
-![Alt text](readmeimages/bored_app_print3.png?raw=true "Title")
-![Alt text](readmeimages/bored_app_print4.png?raw=true "Title")
-![Alt text](readmeimages/bored_app_print5.png?raw=true "Title")
-![Alt text](readmeimages/bored_app_print6.png?raw=true "Title")
-![Alt text](readmeimages/bored_app_print7.png?raw=true "Title")
-![Alt text](readmeimages/bored_app_print8.png?raw=true "Title")
-
 ## Débitos Técnicos:
 
-- Testes unitários: Implementar testes em cada camada (interactor, view, presenter, worker, router)
+Segue uma pequena lista de itens bem importantes que ficaram faltando implementar:
+
+- Testes unitários. Implementar testes em cada camada (interactor, view, presenter, worker, router)
 
 - Mover strings para um arquivo Localizable
 
 - tratar Dark Mode
 
+
+
+## Telas do Projeto
+
+<img src="readmeimages/bored_app_print1.png" width="390" height="844"/>
+<img src="readmeimages/bored_app_print2.png" width="390" height="844"/>
+<img src="readmeimages/bored_app_print3.png" width="390" height="844"/>
+<img src="readmeimages/bored_app_print4.png" width="390" height="844"/>
+<img src="readmeimages/bored_app_print5.png" width="390" height="844"/>
+<img src="readmeimages/bored_app_print6.png" width="390" height="844"/>
+<img src="readmeimages/bored_app_print7.png" width="390" height="844"/>
+<img src="readmeimages/bored_app_print8.png" width="390" height="844"/>
 
