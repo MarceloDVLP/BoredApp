@@ -79,6 +79,8 @@
                 <constraint firstItem="qyu-aY-YHO" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="16" id="wn0-4j-baN"/>
             </constraints>
             <connections>
+                <outlet property="myActivityContainer" destination="swi-HD-nZE" id="mKc-8d-b2Y"/>
+                <outlet property="myActivityLabel" destination="Z0V-Zm-07k" id="WbK-HK-rwJ"/>
                 <outletCollection property="icons" destination="cNq-76-pV2" collectionClass="NSMutableArray" id="nTg-Fz-FgA"/>
                 <outletCollection property="icons" destination="W3c-BJ-aY2" collectionClass="NSMutableArray" id="joo-gS-rCJ"/>
                 <outletCollection property="labels" destination="mtg-Fj-dkf" collectionClass="NSMutableArray" id="FAe-yr-zXH"/>

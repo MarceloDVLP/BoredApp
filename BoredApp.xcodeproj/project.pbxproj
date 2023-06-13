@@ -34,6 +34,13 @@
 		C7FE7DFA2A37BB260015711F /* ActivityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE7DF92A37BB260015711F /* ActivityListView.swift */; };
 		C7FE7DFD2A37C7B40015711F /* ActivityListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE7DFC2A37C7B40015711F /* ActivityListRouter.swift */; };
 		C7FE7DFF2A37C8140015711F /* ActivityListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE7DFE2A37C8140015711F /* ActivityListFactory.swift */; };
+		C7FE7E032A37CB870015711F /* UIButton+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE7E022A37CB870015711F /* UIButton+Helpers.swift */; };
+		C7FE7E052A37CBA00015711F /* UILabel+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE7E042A37CBA00015711F /* UILabel+Helpers.swift */; };
+		C7FE7E072A37CBCF0015711F /* UIFont+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE7E062A37CBCF0015711F /* UIFont+Helpers.swift */; };
+		C7FE7E0B2A37CC750015711F /* EmptyStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE7E092A37CC750015711F /* EmptyStateCell.swift */; };
+		C7FE7E0C2A37CC750015711F /* EmptyStateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7FE7E0A2A37CC750015711F /* EmptyStateCell.xib */; };
+		C7FE7E122A37D18A0015711F /* ErrorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE7E102A37D18A0015711F /* ErrorCell.swift */; };
+		C7FE7E132A37D18A0015711F /* ErrorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7FE7E112A37D18A0015711F /* ErrorCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +85,13 @@
 		C7FE7DF92A37BB260015711F /* ActivityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListView.swift; sourceTree = "<group>"; };
 		C7FE7DFC2A37C7B40015711F /* ActivityListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListRouter.swift; sourceTree = "<group>"; };
 		C7FE7DFE2A37C8140015711F /* ActivityListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListFactory.swift; sourceTree = "<group>"; };
+		C7FE7E022A37CB870015711F /* UIButton+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Helpers.swift"; sourceTree = "<group>"; };
+		C7FE7E042A37CBA00015711F /* UILabel+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Helpers.swift"; sourceTree = "<group>"; };
+		C7FE7E062A37CBCF0015711F /* UIFont+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Helpers.swift"; sourceTree = "<group>"; };
+		C7FE7E092A37CC750015711F /* EmptyStateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateCell.swift; sourceTree = "<group>"; };
+		C7FE7E0A2A37CC750015711F /* EmptyStateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateCell.xib; sourceTree = "<group>"; };
+		C7FE7E102A37D18A0015711F /* ErrorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCell.swift; sourceTree = "<group>"; };
+		C7FE7E112A37D18A0015711F /* ErrorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,10 +181,10 @@
 		C73DC1672A33703E00F2659B /* BoredApp */ = {
 			isa = PBXGroup;
 			children = (
-				C74862C62A3669BC00BD0EC5 /* Utilities */,
-				C73D37942A351953006C1E82 /* Scenes */,
 				C73DC17D2A33725B00F2659B /* Application */,
 				C7E1BEED2A34A74C00693593 /* Extensions */,
+				C73D37942A351953006C1E82 /* Scenes */,
+				C74862C62A3669BC00BD0EC5 /* Utilities */,
 			);
 			path = BoredApp;
 			sourceTree = "<group>";
@@ -230,6 +244,8 @@
 			children = (
 				C73DC16C2A33703E00F2659B /* ActivityListViewController.swift */,
 				C7FE7DF92A37BB260015711F /* ActivityListView.swift */,
+				C7FE7E082A37CC400015711F /* EmptyStateCell */,
+				C7FE7E0D2A37D1570015711F /* ErrorCell */,
 				C7FE7DF32A37B9E10015711F /* ActivityCell */,
 			);
 			path = View;
@@ -240,6 +256,9 @@
 			children = (
 				C7E1BEEE2A34A76200693593 /* UIColor+Helpers.swift */,
 				C7E1BEF02A34A77900693593 /* UIView+Helpers.swift */,
+				C7FE7E022A37CB870015711F /* UIButton+Helpers.swift */,
+				C7FE7E042A37CBA00015711F /* UILabel+Helpers.swift */,
+				C7FE7E062A37CBCF0015711F /* UIFont+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -309,6 +328,24 @@
 				C73D378B2A351385006C1E82 /* ActivityEntity+CoreDataProperties.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		C7FE7E082A37CC400015711F /* EmptyStateCell */ = {
+			isa = PBXGroup;
+			children = (
+				C7FE7E092A37CC750015711F /* EmptyStateCell.swift */,
+				C7FE7E0A2A37CC750015711F /* EmptyStateCell.xib */,
+			);
+			path = EmptyStateCell;
+			sourceTree = "<group>";
+		};
+		C7FE7E0D2A37D1570015711F /* ErrorCell */ = {
+			isa = PBXGroup;
+			children = (
+				C7FE7E102A37D18A0015711F /* ErrorCell.swift */,
+				C7FE7E112A37D18A0015711F /* ErrorCell.xib */,
+			);
+			path = ErrorCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,9 +429,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7FE7E0C2A37CC750015711F /* EmptyStateCell.xib in Resources */,
 				C74862C32A3519B900BD0EC5 /* FilterActivityHeaderView.xib in Resources */,
 				C73DC1752A33703F00F2659B /* LaunchScreen.storyboard in Resources */,
 				C73DC1722A33703F00F2659B /* Assets.xcassets in Resources */,
+				C7FE7E132A37D18A0015711F /* ErrorCell.xib in Resources */,
 				C75C5A642A33839D0090766E /* ActivityCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +464,10 @@
 				C73D378E2A3513AD006C1E82 /* ActivityEntity+CoreDataProperties.swift in Sources */,
 				C73D377F2A34F935006C1E82 /* FilterCell.swift in Sources */,
 				C7E1BEEF2A34A76200693593 /* UIColor+Helpers.swift in Sources */,
+				C7FE7E052A37CBA00015711F /* UILabel+Helpers.swift in Sources */,
+				C7FE7E032A37CB870015711F /* UIButton+Helpers.swift in Sources */,
+				C7FE7E072A37CBCF0015711F /* UIFont+Helpers.swift in Sources */,
+				C7FE7E0B2A37CC750015711F /* EmptyStateCell.swift in Sources */,
 				C73D377D2A34BD9E006C1E82 /* FilterViewController.swift in Sources */,
 				C7E1BEF42A34ABC500693593 /* FilterActivityHeaderView.swift in Sources */,
 				C75C5A5D2A337C800090766E /* ActivityCodable.swift in Sources */,
@@ -432,6 +475,7 @@
 				C7FE7DFD2A37C7B40015711F /* ActivityListRouter.swift in Sources */,
 				C73DC1692A33703E00F2659B /* AppDelegate.swift in Sources */,
 				C7FE7DF52A37BA210015711F /* ActivityListPresenter.swift in Sources */,
+				C7FE7E122A37D18A0015711F /* ErrorCell.swift in Sources */,
 				C7FE7DFF2A37C8140015711F /* ActivityListFactory.swift in Sources */,
 				C73D378F2A3513C4006C1E82 /* ActivityEntity+CoreDataClass.swift in Sources */,
 				C73DC16B2A33703E00F2659B /* SceneDelegate.swift in Sources */,

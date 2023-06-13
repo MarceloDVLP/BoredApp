@@ -16,7 +16,8 @@ final class ActivityListView: UIView {
         return collectionView
     }()
     
-    private var activities: [ActivityModel] = []
+    private var activities: [ActivityItem]?
+    private var showErrorState: Bool = false
 
     func registerCells() {
         let activityCellNib = UINib(nibName: ActivityCell.identifier, bundle: nil)
@@ -27,6 +28,15 @@ final class ActivityListView: UIView {
         collectionView.register(filterNib,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: FilterActivityHeaderView.identifier)
+
+        let emptyState = UINib(nibName: EmptyStateCell.identifier, bundle: nil)
+        collectionView.register(emptyState,
+                                forCellWithReuseIdentifier: EmptyStateCell.identifier)
+
+        let errorNib = UINib(nibName: ErrorCell.identifier, bundle: nil)
+        collectionView.register(errorNib,
+                                forCellWithReuseIdentifier: ErrorCell.identifier)
+
     }
     
     func setupCollectionView() {
@@ -42,17 +52,29 @@ final class ActivityListView: UIView {
     }
     
     func showLoading() {
-        activities = []
+        activities = nil
+        showErrorState = false
         collectionView.reloadData()
     }
     
-    func show(activities: [ActivityModel]) {
+    func show(activities: [ActivityItem]) {
         self.activities = activities
         collectionView.reloadData()
     }
     
     func showError() {
-        
+        showErrorState = true
+        collectionView.reloadData()
+    }
+    
+    func show(_ activity: ActivityItem, at index: Int) {
+        guard var activities = self.activities else { return }
+        activities[index] = activity
+        self.activities = activities
+    
+        if let cell = collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? ActivityCell {
+            cell.update(activity: activity)
+        }
     }
     
     override init(frame: CGRect) {
@@ -69,14 +91,39 @@ final class ActivityListView: UIView {
 extension ActivityListView: UICollectionViewDataSource {
 
     var isCollectionLoading: Bool {
-        activities.count == 0
+        activities == nil
+    }
+    
+    var showEmptyState: Bool {
+        if let activities, activities.count == 0 {
+            return true
+        } else {
+            return false
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ActivityCell.identifier, for: indexPath) as! ActivityCell
-        cell.delegate = self
-        isCollectionLoading ?  cell.starLoading() : cell.configure(activities[indexPath.item])
-        return cell
+        if showErrorState,
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ErrorCell.identifier,                                                      for: indexPath) as? ErrorCell {
+
+            cell.didTapTryAgain = { [weak self] in
+                self?.showLoading()
+                self?.delegate?.didTapTryAgain()
+            }
+            return cell
+        }
+        
+        if showEmptyState {
+            return collectionView.dequeueReusableCell(withReuseIdentifier: EmptyStateCell.identifier,                                                      for: indexPath)
+        }
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ActivityCell.identifier, for: indexPath) as? ActivityCell {
+            cell.delegate = self
+            isCollectionLoading ?  cell.starLoading() : cell.configure(activities?[indexPath.item])
+            return cell
+        }
+        
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -94,7 +141,9 @@ extension ActivityListView: UICollectionViewDataSource {
     }
         
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return isCollectionLoading ? 4 : activities.count
+        if showEmptyState || showErrorState { return 1 }
+        if isCollectionLoading { return 4 }
+        return activities?.count ?? 0
     }
 }
 
@@ -110,12 +159,7 @@ extension ActivityListView: UICollectionViewDelegateFlowLayout {
         let size =  CGSize(width: collectionView.bounds.width, height: 60)
         return size
     }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let isLastCell = indexPath.item == activities.count-1
-        prepareToPaginate()
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 16,
                             left: 16,
@@ -126,19 +170,12 @@ extension ActivityListView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         32
     }
-    
-    func prepareToPaginate() {
-//        for index in activities.count-1..activities.count+3 {
-//            collectionView.insertItems(at: )
-//
-//        }
-    }
 }
 
 extension ActivityListView: ActivityCellDelegate {
     
     func userDidTapButton(at cell: ActivityCell) {
-        guard let indexPath = collectionView.indexPath(for: cell) else { return }
+        guard let indexPath = collectionView.indexPath(for: cell), let activities else { return }
         let activity = activities[indexPath.item]
         delegate?.userDidTapActivity(activity, indexPath.item, cell: cell)
     }

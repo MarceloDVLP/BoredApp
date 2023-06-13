@@ -13,6 +13,10 @@ final class FilterActivityHeaderView: UICollectionReusableView {
     @IBOutlet private var labels: [UILabel]!
     @IBOutlet private var views: [UIView]!
 
+    @IBOutlet private var myActivityLabel: UILabel!
+    @IBOutlet private var myActivityContainer: UIView!
+
+    
     var didTapFilterActivity: (() ->())?
     var didTapMyActivities: ((Bool) ->())?
 
@@ -45,21 +49,21 @@ final class FilterActivityHeaderView: UICollectionReusableView {
     @objc func didTapFilter(_ gesture: UITapGestureRecognizer) {
         if gesture.view?.tag == 0 {
             didTapFilterActivity?()
+            selectMyActivityFilter(false)
         } else {
-            selectMyActivityFilter(gesture.view)
+            let isSelected = !(myActivityContainer.backgroundColor == .white)
+            selectMyActivityFilter(isSelected)
+            didTapMyActivities?(isSelected)
         }
     }
     
-    func selectMyActivityFilter(_ view: UIView?) {
-        let isSelected = !(view?.backgroundColor == .white)
+    func selectMyActivityFilter(_ isSelected: Bool) {
         
-        view?.backgroundColor = isSelected ? .white : .clear
-        
-        (view?.subviews.first as? UILabel)?.textColor = isSelected ? UIColor.black : Colors.titleColor
+        myActivityContainer.backgroundColor = isSelected ? .white : .clear
+        myActivityLabel.textColor = isSelected ? UIColor.black : Colors.titleColor
         
         icons.last?.image = UIImage(named: "arrow-down")?.withTintColor(isSelected ? UIColor.black : Colors.titleColor,
                                                                         renderingMode: .alwaysOriginal)
         
-        didTapMyActivities?(isSelected)
     }
 }

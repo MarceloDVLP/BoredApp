@@ -27,21 +27,18 @@ final class ActivityListInteractor {
         activities = []
         
         guard userActivities else {
-            self.fetchFromRemote(activityType: activityType) { result in
-                self.presenter.present(activities: result)
+            self.fetchFromRemote(activityType: activityType) { [weak self] result in
+                self?.activities = result
+                result.isEmpty ?
+                self?.presenter.presentError() :
+                self?.presenter.present(activities: result)
             }
             return
         }
         
         localWorker.getUserActivities() { [weak self] result in
             guard let self = self else { return }
-            self.activities = result
-            
-            self.fetchFromRemote(activityType: activityType) { result in
-                DispatchQueue.main.async {
-                    self.presenter.present(activities: result)
-                }
-            }
+            self.presenter.present(activities: result)
         }
     }
     
@@ -51,17 +48,21 @@ final class ActivityListInteractor {
         for _ in 0...10 {
             group.enter()
             
-            Task {
-                let result = try await remoteWorker.fetch(activityType)
-                
-                switch (result) {
-                case .success(let activity):
-                    activities.append(ActivityModel(activityCodable: activity))
-                case .failure:
-                    break
+            Task {                
+                do {
+                    let result = try await remoteWorker.fetch(activityType)
+
+                    switch (result) {
+                    case .success(let activity):
+                        activities.append(ActivityModel(activityCodable: activity))
+                        group.leave()
+                    case .failure:
+                        break
+                    }
+                    
+                } catch {
+                    group.leave()
                 }
-                
-                group.leave()
             }
         }
         
@@ -80,6 +81,8 @@ final class ActivityListInteractor {
             activity.state = .pending
             localWorker.save(activity, state: .pending, date: dateStart)
         }
+        
+        presenter.present(activity, index: index)
     }
     
     func isActivityStarted(at index: Int) -> Bool {
@@ -93,6 +96,7 @@ final class ActivityListInteractor {
         let dateEnd = Date.now
         activity.dateEnd = dateEnd
         localWorker.update(activity, state: state, date: dateEnd)
+        presenter.present(activity, index: activityIndex)
     }
     
     func activity(for index: Int) -> ActivityModel {

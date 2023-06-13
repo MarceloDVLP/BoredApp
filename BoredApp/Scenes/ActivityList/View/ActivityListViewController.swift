@@ -53,8 +53,12 @@ extension ActivityListViewController {
         fetch(userActivities: isSelected, activityType: nil)
     }
     
-    func userDidTapActivity(_ activity: ActivityModel, _ index: Int, cell: ActivityCell) {
-        if activity.state != nil {
+    func didTapTryAgain() {
+        fetch()
+    }
+    
+    func userDidTapActivity(_ activity: ActivityItem, _ index: Int, cell: ActivityCell) {
+        if activity.didStartActivity {
             showAlert(for: index, cell: cell)
         } else {
             interactor.start(at: index)
@@ -96,17 +100,21 @@ extension ActivityListViewController {
     
     func setActivityState(state: ActivityState, at index: Int, _ cell: ActivityCell) {
         interactor.setState(state: state, for: index)
-        cell.update(activity: interactor.activity(for: index))
+        //cell.update(activity: interactor.activity(for: index))
     }
 }
 
 extension ActivityListViewController {
     
-    func show(_ activities: [ActivityModel]) {
+    func show(_ activities: [ActivityItem]) {
         activityListView.show(activities: activities)
     }
     
     func showError() {
         activityListView.showError()
+    }
+    
+    func show(_ activity: ActivityItem, at index: Int) {
+        activityListView.show(activity, at: index)
     }
 }
