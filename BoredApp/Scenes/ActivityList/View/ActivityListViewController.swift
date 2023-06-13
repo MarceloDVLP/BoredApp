@@ -10,13 +10,13 @@ import UIKit
 final class ActivityListViewController: UIViewController {
 
     private var interactor: ActivityListInteractorProtocol
-    private var router: ActivityListRouter
+    private var router: ActivityListRouterProtocol
 
     private lazy var activityListView: ActivityListView = {
         return ActivityListView()
     }()    
         
-    init(interactor: ActivityListInteractorProtocol, router: ActivityListRouter) {
+    init(interactor: ActivityListInteractorProtocol, router: ActivityListRouterProtocol) {
         self.interactor = interactor
         self.router = router
         super.init(nibName: nil, bundle: nil)

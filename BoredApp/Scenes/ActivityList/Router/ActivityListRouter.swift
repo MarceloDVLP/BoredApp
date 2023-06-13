@@ -7,7 +7,13 @@
 
 import UIKit
 
-final class ActivityListRouter {
+protocol ActivityListRouterProtocol {
+
+    func routeToFilter(completion: ((String) -> ())?)
+    func show(alert: UIAlertController)
+}
+
+final class ActivityListRouter: ActivityListRouterProtocol {
     
     weak var viewController: ActivityListViewController?
     
