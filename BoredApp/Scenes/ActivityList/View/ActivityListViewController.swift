@@ -9,14 +9,14 @@ import UIKit
 
 final class ActivityListViewController: UIViewController {
 
-    private var interactor: ActivityListInteractor
+    private var interactor: ActivityListInteractorProtocol
     private var router: ActivityListRouter
 
     private lazy var activityListView: ActivityListView = {
         return ActivityListView()
     }()    
         
-    init(interactor: ActivityListInteractor, router: ActivityListRouter) {
+    init(interactor: ActivityListInteractorProtocol, router: ActivityListRouter) {
         self.interactor = interactor
         self.router = router
         super.init(nibName: nil, bundle: nil)
@@ -100,7 +100,6 @@ extension ActivityListViewController {
     
     func setActivityState(state: ActivityState, at index: Int, _ cell: ActivityCell) {
         interactor.setState(state: state, for: index)
-        //cell.update(activity: interactor.activity(for: index))
     }
 }
 

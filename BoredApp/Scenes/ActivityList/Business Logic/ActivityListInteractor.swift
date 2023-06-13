@@ -7,7 +7,14 @@
 
 import Foundation
 
-final class ActivityListInteractor {
+protocol ActivityListInteractorProtocol {
+    func fetch(activityType: String?, userActivities: Bool)
+    func start(at index: Int)
+    func setState(state: ActivityState, for activityIndex: Int)
+}
+
+
+final class ActivityListInteractor: ActivityListInteractorProtocol {
 
     private var remoteWorker: RemoteActivityWorker
     private var localWorker: CoreDataWorker
@@ -21,9 +28,7 @@ final class ActivityListInteractor {
     
     private var activities: [ActivityModel] = []
     
-    func fetch(activityType: String?,
-               userActivities: Bool = false) {
-        
+    func fetch(activityType: String?, userActivities: Bool = false) {
         activities = []
         
         guard userActivities else {
@@ -42,7 +47,7 @@ final class ActivityListInteractor {
         }
     }
     
-    func fetchFromRemote(activityType: String?, _ completion: (([ActivityModel]) -> ())?) {
+    private func fetchFromRemote(activityType: String?, _ completion: (([ActivityModel]) -> ())?) {
         let group = DispatchGroup()
         
         for _ in 0...10 {
@@ -85,11 +90,6 @@ final class ActivityListInteractor {
         presenter.present(activity, index: index)
     }
     
-    func isActivityStarted(at index: Int) -> Bool {
-        let activity = activities[index]
-        return activity.state != nil
-    }
-    
     func setState(state: ActivityState, for activityIndex: Int) {
         let activity = activities[activityIndex]
         activity.state = state
@@ -97,9 +97,5 @@ final class ActivityListInteractor {
         activity.dateEnd = dateEnd
         localWorker.update(activity, state: state, date: dateEnd)
         presenter.present(activity, index: activityIndex)
-    }
-    
-    func activity(for index: Int) -> ActivityModel {
-        return activities[index]
     }
 }
