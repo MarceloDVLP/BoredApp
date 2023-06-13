@@ -1,6 +1,12 @@
 import CoreData
 
-final class CoreDataWorker {
+protocol CoreDataWorkerProtocol {
+    func save(_ activity: ActivityModel, state: ActivityState, date: Date)
+    func update(_ activity: ActivityModel, state: ActivityState, date: Date)
+    func getUserActivities(_ completion: (([ActivityModel]) -> ())?)
+}
+
+final class CoreDataWorker: CoreDataWorkerProtocol {
     
     private let modelName: String = "BoredAppDataModel"
 
@@ -16,7 +22,7 @@ final class CoreDataWorker {
 
     lazy var managedContext: NSManagedObjectContext = self.storeContainer.viewContext
 
-    func saveContext() {
+    private func saveContext() {
         guard managedContext.hasChanges else { return }
         do {
             try managedContext.save()

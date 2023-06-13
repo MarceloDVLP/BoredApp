@@ -7,7 +7,11 @@
 
 import Foundation
 
-final class ClientHTTP {
+protocol ClientHTTPProtocol {
+    func fetch(_ url: URL) async throws -> (Data)
+}
+
+final class ClientHTTP: ClientHTTPProtocol {
     
     private var session: URLSession
     

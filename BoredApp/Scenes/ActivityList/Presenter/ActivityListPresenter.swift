@@ -7,7 +7,14 @@
 
 import UIKit
 
-final class ActivityListPresenter {
+protocol ActivityListPresenterProtocol {
+    
+    func present(_ activity: ActivityModel, index: Int)
+    func present(activities: [ActivityModel])
+    func presentError()
+}
+
+final class ActivityListPresenter: ActivityListPresenterProtocol {
     
     weak var viewController: ActivityListViewController?
     
@@ -17,7 +24,6 @@ final class ActivityListPresenter {
     }
     
     func present(activities: [ActivityModel]) {
-        
         var items: [ActivityItem] = []
         
         activities.forEach({ activity in
@@ -39,7 +45,6 @@ final class ActivityListPresenter {
     }
     
     private func map(_ activity: ActivityModel) -> ActivityItem {
-
         let activityType = "\(activity.type) activity"
       
         let priceLabel: String
@@ -110,17 +115,3 @@ final class ActivityListPresenter {
     }
  }
 
-struct ActivityItem {
-    var type: String
-    var name: String
-    var riskName: Bool
-    var accessbility: String
-    var price: String
-    var buttonTitle: String
-    var participants: String
-    var animateButton: Bool
-    var titleButton: String
-    var activityColor: UIColor
-    var didStartActivity: Bool
-    var disableButton: Bool
-}

@@ -41,6 +41,8 @@
 		C7FE7E0C2A37CC750015711F /* EmptyStateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7FE7E0A2A37CC750015711F /* EmptyStateCell.xib */; };
 		C7FE7E122A37D18A0015711F /* ErrorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE7E102A37D18A0015711F /* ErrorCell.swift */; };
 		C7FE7E132A37D18A0015711F /* ErrorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7FE7E112A37D18A0015711F /* ErrorCell.xib */; };
+		C7FE7E152A38747D0015711F /* ActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE7E142A38747D0015711F /* ActivityItem.swift */; };
+		C7FE7E172A3875480015711F /* BoredAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE7E162A3875480015711F /* BoredAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,8 @@
 		C7FE7E0A2A37CC750015711F /* EmptyStateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateCell.xib; sourceTree = "<group>"; };
 		C7FE7E102A37D18A0015711F /* ErrorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCell.swift; sourceTree = "<group>"; };
 		C7FE7E112A37D18A0015711F /* ErrorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorCell.xib; sourceTree = "<group>"; };
+		C7FE7E142A38747D0015711F /* ActivityItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityItem.swift; sourceTree = "<group>"; };
+		C7FE7E162A3875480015711F /* BoredAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoredAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				C75C5A4A2A3373CB0090766E /* RemoteActivityLoader.swift */,
+				C7FE7E162A3875480015711F /* BoredAPI.swift */,
 				C7FE7DF02A3771700015711F /* ClientHTTP */,
 				C7FE7DEF2A3770D30015711F /* Codable */,
 			);
@@ -291,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				C7FE7DF42A37BA210015711F /* ActivityListPresenter.swift */,
+				C7FE7E142A38747D0015711F /* ActivityItem.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -454,6 +460,7 @@
 			files = (
 				C7E1BEF12A34A77900693593 /* UIView+Helpers.swift in Sources */,
 				C7FE7DFA2A37BB260015711F /* ActivityListView.swift in Sources */,
+				C7FE7E172A3875480015711F /* BoredAPI.swift in Sources */,
 				C74862C82A3669CA00BD0EC5 /* Colors.swift in Sources */,
 				C75C5A5F2A337E930090766E /* ClientHTTP.swift in Sources */,
 				C73DC16D2A33703E00F2659B /* ActivityListViewController.swift in Sources */,
@@ -477,6 +484,7 @@
 				C7FE7DF52A37BA210015711F /* ActivityListPresenter.swift in Sources */,
 				C7FE7E122A37D18A0015711F /* ErrorCell.swift in Sources */,
 				C7FE7DFF2A37C8140015711F /* ActivityListFactory.swift in Sources */,
+				C7FE7E152A38747D0015711F /* ActivityItem.swift in Sources */,
 				C73D378F2A3513C4006C1E82 /* ActivityEntity+CoreDataClass.swift in Sources */,
 				C73DC16B2A33703E00F2659B /* SceneDelegate.swift in Sources */,
 			);

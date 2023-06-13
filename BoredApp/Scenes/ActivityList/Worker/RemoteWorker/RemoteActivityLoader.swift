@@ -7,11 +7,15 @@
 
 import Foundation
 
-final class RemoteActivityWorker {
+protocol RemoteActivityWorkerProtocol {
+    func fetch(_ actityType: String?) async throws -> Result<ActivityCodable, Error>
+}
+
+final class RemoteActivityWorker: RemoteActivityWorkerProtocol {
     
-    private var clientHTTP: ClientHTTP
+    private var clientHTTP: ClientHTTPProtocol
     
-    init(clientHTTP: ClientHTTP) {
+    init(clientHTTP: ClientHTTPProtocol) {
         self.clientHTTP = clientHTTP
     }
     
@@ -59,11 +63,3 @@ enum RemoteLoaderError: Error {
     case jsonDecode
 }
 
-enum BoredAPI {
-
-    case activity
-
-    var url: String {
-        return "http://www.boredapi.com/api/activity/"
-    }
-}
