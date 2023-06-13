@@ -13,7 +13,6 @@ protocol ActivityListInteractorProtocol {
     func setState(state: ActivityState, for activityIndex: Int)
 }
 
-
 final class ActivityListInteractor: ActivityListInteractorProtocol {
 
     private var remoteWorker: RemoteActivityWorkerProtocol

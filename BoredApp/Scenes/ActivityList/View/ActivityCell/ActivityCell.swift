@@ -41,13 +41,8 @@ final class ActivityCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        contentView.layer.cornerRadius = 12
-        contentView.layer.masksToBounds = true
         containerView.layer.cornerRadius = 12
         containerView.backgroundColor = .lightGray
-        
-        
         actionButton.transparentStyle(title: "", with: 12)
     }
     

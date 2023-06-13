@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ActivityListViewControllerProtocol: AnyObject {
+protocol ActivityListViewControllerProtocol where Self: UIViewController {
     func show(_ activities: [ActivityItem])
     func showError()
     func show(_ activity: ActivityItem, at index: Int)
@@ -41,6 +41,11 @@ final class ActivityListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetch()
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        activityListView.invalidateLayout()
     }
 }
 

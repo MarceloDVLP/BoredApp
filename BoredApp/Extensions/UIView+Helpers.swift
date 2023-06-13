@@ -16,7 +16,6 @@ extension UIView {
         layer.shadowOpacity = 0.5
         layer.shadowColor = UIColor.black.withAlphaComponent(0.7).cgColor
         layer.shadowOffset = CGSize(width: 1, height: 5)
-        // Improve scrolling performance with an explicit shadowPath
         layer.shadowPath = UIBezierPath(
             roundedRect: bounds,
             cornerRadius: cornerRadius
@@ -102,8 +101,3 @@ extension UIView {
         NSLayoutConstraint.activate(constraints)
     }
 }
-
-
-
-
-

@@ -85,6 +85,10 @@ final class ActivityListView: UIView {
         }
     }
     
+    func invalidateLayout() {
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCollectionView()

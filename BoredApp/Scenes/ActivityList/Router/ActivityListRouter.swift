@@ -15,7 +15,7 @@ protocol ActivityListRouterProtocol {
 
 final class ActivityListRouter: ActivityListRouterProtocol {
     
-    weak var viewController: ActivityListViewController?
+    weak var viewController: ActivityListViewControllerProtocol?
     
     func routeToFilter(completion: ((String) -> ())?) {
         let items = ActivityType.allCases.map({ $0.rawValue })
