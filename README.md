@@ -59,5 +59,4 @@ Segue uma pequena lista de itens bem importantes que ficaram faltando implementa
 <img src="readmeimages/bored_app_print5.png" width="390" height="844"/>
 <img src="readmeimages/bored_app_print6.png" width="390" height="844"/>
 <img src="readmeimages/bored_app_print7.png" width="390" height="844"/>
-<img src="readmeimages/bored_app_print8.png" width="390" height="844"/>
 
